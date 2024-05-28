@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.app {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0px 0px 0px;
+    background-color: #fff;
+    min-height: 100vh;
+    width: 998px;
+}
+
+.profile-card {
+    position: relative;
+    width: 290px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+    margin: 10px;
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
+
+.profile-card:hover {
+    transform: scale(1.01);
+}
+
+.profile-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.profile-card:hover::before {
+    opacity: 0.9;
+}
+
+.profile-card-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    color: #fff;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.profile-card:hover .profile-card-content {
+    bottom: 0%;
+}
+
+.profile-card-content h2,
+.profile-card-content h3 {
+    margin: 0;
+    display: none;
+
+}
+
+.profile-card:hover .profile-card-content h2  {
+    display: block;
+
+}
+.profile-card:hover .profile-card-content h3 {
+    display: block;
+
+}
+.profile-card:hover .thebackcolor {
+    display: none;
+
+}
+
+
+
+
+.profile-card-content p {
+    display: none;
+}
+
+.profile-card:hover .profile-card-content p {
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+}
+.thetext{
+    font-size: 13px !important;
+}
+.profile-card-content h2{
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.profile-card-content h3{
+    font-size: 18px;
+}
+.thebackcolor{
+    background-color: #151515;
+    width: 100%;
+    position: absolute;
+    height: 100px;
+    top: 77%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0.6;
+}
+.thebackcolor h2{
+    font-size: 24px;
+    color: #fff;
+}
+.thebackcolor h3{
+    font-size: 16px;
+    color: #fff;
+
+}
+.profile-card > :nth-child(3) {
+    background-repeat: no-repeat; /* Prevent background image from repeating */
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-position: center; /* Center the background image */
+}

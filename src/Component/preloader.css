@@ -1,0 +1,34 @@
+.lodingimagewidth{
+    width: 100%;
+    margin-top: -100px;
+}
+.center-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    /* Add other styles as needed */
+}
+.fghdkjfgkjdf{
+    position: absolute;
+    width: 100%;
+    margin-top: -130px;
+
+
+}
+
+
+
+.fade-in {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+  }
+
+  
+  
