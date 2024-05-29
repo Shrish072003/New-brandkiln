@@ -15,7 +15,7 @@ const Homepage = () => {
     // Simulate loading delay with setTimeout (you can replace this with actual data fetching)
     const timeout = setTimeout(() => {
       setIsLoading(false); // Once loaded, set isLoading to false
-    }, 2000); // Adjust the timeout as needed
+    }, 20); // Adjust the timeout as needed
 
     return () => clearTimeout(timeout); // Cleanup timeout on unmount
   }, []);
