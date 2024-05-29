@@ -41,7 +41,7 @@ const MainSection = () => {
         <span className='studio'>STUDIO</span>
         <div className='undermaindiv' style={{ alignItems: 'end' }}>
           <span className='undermain'>We curate Experiences</span>
-          <Link to='/about' className='buoton'>MORE</Link>
+          <Link to='/brand-strategy' className='buoton'>MORE</Link>
         </div>
       </div>
       <div

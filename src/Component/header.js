@@ -111,7 +111,7 @@ const MenuToggle = () => {
     <li><Link to="/digital-ecosystems">Digital ecosystems</Link></li>
     <li><Link to="/apps-and-platform-development">Apps & Platform dev</Link></li>
   </ul>
-  <div><Link to="/resources">Resources</Link></div>
+  {/* <div><Link to="/resources">Resources</Link></div> */}
   <div><Link to="/about">About</Link></div>
 </div>
 <hr style={{color:'#fff'}}/>

@@ -14,7 +14,7 @@ import NishantFadnavis from '../Images/profiles/NishantFadnavis.png';
 import RichardVanTillborg from '../Images/profiles/RichardVanTillborg.png';
 import SatyakamaPaul from '../Images/profiles/SatyakamaPaul.png';
 import ShoebahmedShaikh from '../Images/profiles/ShoebahmedShaikh.png';
-import Sharon from '../Images/profiles/SharonGal-Or.png';
+import Sharon from '../Images/profiles/SharonGal-Or.jpg';
 import anagh from '../Images/profiles/anagh.jpg';
 
 

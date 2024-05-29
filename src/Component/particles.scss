@@ -48,17 +48,63 @@
 
 
 
+// @for $i from 1 through 60 {
+//   @keyframes particle-animation-#{$i} {
+//     100% {
+//       transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+//     }
+//   }
+  
+//   $colors: #25A1E1, #B3D656, #EF5C28; // Specify the colors to choose from
+  
+//   $color: nth($colors, random(length($colors))); // Randomly select one of the specified colors
+  
+//   .particle:nth-child(#{$i}) {
+//     animation: particle-animation-#{$i} 60s infinite;
+//     $size: random(5) + 15 + px;
+//     opacity: random(100) / 10;
+//     height: $size;
+//     width: $size;
+//     animation-delay: -$i * 0.7s;
+//     transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+//     background: $color;
+//     transition: transform 0.3s ease; // Add transition for smooth animation
+//     cursor: pointer; // Change cursor to pointer when hovering
+
+//     // 3D effect properties
+//     border-radius: 50%; // Make it rounded
+//     box-shadow: 
+//       0 2px 5px rgba(0, 0, 0, 0.15), // Subtle shadow for depth
+//       inset 0 -2px 5px rgba(0, 0, 0, 0.3); // Inner shadow for 3D effect
+
+//     // Optional: Add a gradient to enhance the 3D look
+//     background: linear-gradient(to top, lighten($color, 10%), darken($color, 10%));
+//   }
+  
+//   .particle.clicked:nth-child(#{$i}) {
+//     animation-play-state: paused; // Pause animation when particle has clicked class
+//   }
+// }
+
+  
+// .ghfghfghfg {
+//   box-shadow: 
+//     0 4px 10px rgba(0, 0, 0, 0.3), // Outer shadow for depth
+//     inset 0 -4px 10px rgba(0, 0, 0, 0.2); // Inner shadow for 3D effect
+// }
+  
+
+$tech-color: #B3D658;
+$strategies-color: #2C55ED;
+$brand-color: #E0076A;
+
 @for $i from 1 through 60 {
   @keyframes particle-animation-#{$i} {
     100% {
       transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
     }
   }
-  
-  $colors: #25A1E1, #B3D656, #EF5C28; // Specify the colors to choose from
-  
-  $color: nth($colors, random(length($colors))); // Randomly select one of the specified colors
-  
+
   .particle:nth-child(#{$i}) {
     animation: particle-animation-#{$i} 60s infinite;
     $size: random(5) + 15 + px;
@@ -67,7 +113,6 @@
     width: $size;
     animation-delay: -$i * 0.7s;
     transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
-    background: $color;
     transition: transform 0.3s ease; // Add transition for smooth animation
     cursor: pointer; // Change cursor to pointer when hovering
 
@@ -77,8 +122,17 @@
       0 2px 5px rgba(0, 0, 0, 0.15), // Subtle shadow for depth
       inset 0 -2px 5px rgba(0, 0, 0, 0.3); // Inner shadow for 3D effect
 
-    // Optional: Add a gradient to enhance the 3D look
-    background: linear-gradient(to top, lighten($color, 10%), darken($color, 10%));
+    &.tech {
+      background: linear-gradient(to top, lighten($tech-color, 10%), darken($tech-color, 10%));
+    }
+    
+    &.strategies {
+      background: linear-gradient(to top, lighten($strategies-color, 10%), darken($strategies-color, 10%));
+    }
+
+    &.brand {
+      background: linear-gradient(to top, lighten($brand-color, 10%), darken($brand-color, 10%));
+    }
   }
   
   .particle.clicked:nth-child(#{$i}) {
@@ -86,10 +140,8 @@
   }
 }
 
-  
 .ghfghfghfg {
   box-shadow: 
     0 4px 10px rgba(0, 0, 0, 0.3), // Outer shadow for depth
     inset 0 -4px 10px rgba(0, 0, 0, 0.2); // Inner shadow for 3D effect
 }
-  
