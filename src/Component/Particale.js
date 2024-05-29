@@ -427,6 +427,8 @@
 // export default Particle;
 
 
+
+
 import React, { useEffect, useRef, useState } from 'react';
 import imgBk from '../Images/bklogo.png';
 import Footer from './footer.js';
@@ -530,11 +532,6 @@ const Particle = () => {
     setPopupBackgroundColor(''); // Reset popup background color
   };
 
-  // Construct the gradient background for the popup
-  const gradientBackground = popupBackgroundColor
-    ? `linear-gradient(to top, ${popupBackgroundColor}, ${popupBackgroundColor})`
-    : '';
-
   // Function to determine the size of a particle and apply 3D effect
   const getParticleStyle = (index) => {
     const sizeClass = index % 15 === 0 ? 'large' : index % 5 === 0 ? 'medium' : 'small';
@@ -555,24 +552,24 @@ const Particle = () => {
     return { ...size, boxShadow };
   };
 
-  // Function to handle filter change
+  // Handle filter change
   const handleFilterChange = (filter) => {
     setSelectedFilter(filter); // Update selected filter state
   };
 
-  // Filter particles based on the selected category
-  const filteredParticles = selectedFilter === 'All'
-    ? ParticleData
-    : ParticleData.filter(data => {
-        if (selectedFilter === 'Tech') {
-          return data.tag === 'TECH';
-        } else if (selectedFilter === 'Strategy') {
-          return data.tag === 'STRATEGIES';
-        } else if (selectedFilter === 'Brand') {
-          return data.tag === 'BRAND';
-        }
-        return true; // Default case
-      });
+  // Filter particles based on selected category
+  const filteredParticles = ParticleData.filter(data => {
+    if (selectedFilter === 'All') {
+      return true; // Return all particles if filter is 'All'
+    } else {
+      return data.tag === selectedFilter; // Filter by tag if not 'All'
+    }
+  });
+
+  // Construct the gradient background for the popup
+  const gradientBackground = popupBackgroundColor
+    ? `linear-gradient(to top, ${popupBackgroundColor}, ${popupBackgroundColor})`
+    : '';
 
   return (
     <>
@@ -584,10 +581,10 @@ const Particle = () => {
         <div className='d-flex gap-2 gkhlkfghfg'>
           <button className={`boll ${selectedFilter === 'All' ? 'active' : ''}`} onClick={() => handleFilterChange('All')}></button>
           {selectedFilter === 'All' && <span className='filter-label filter-text'>All</span>}
-          <button className={`boll bollone ${selectedFilter === 'Tech' ? 'active' : ''}`} onClick={() => handleFilterChange('Tech')}></button>
-          {selectedFilter === 'Tech' && <span className='filter-label filter-text'>Tech</span>}
-          <button className={`boll bolltwo ${selectedFilter === 'Strategy' ? 'active' : ''}`} onClick={() => handleFilterChange('Strategy')}></button>
+          <button className={`boll bollone ${selectedFilter === 'Strategy' ? 'active' : ''}`} onClick={() => handleFilterChange('Strategy')}></button>
           {selectedFilter === 'Strategy' && <span className='filter-label filter-text'>Strategy</span>}
+          <button className={`boll bolltwo ${selectedFilter === 'Tech' ? 'active' : ''}`} onClick={() => handleFilterChange('Tech')}></button>
+          {selectedFilter === 'Tech' && <span className='filter-label filter-text'>Tech</span>}
           <button className={`boll bollthree ${selectedFilter === 'Brand' ? 'active' : ''}`} onClick={() => handleFilterChange('Brand')}></button>
           {selectedFilter === 'Brand' && <span className='filter-label filter-text'>Brand</span>}
         </div>
@@ -596,8 +593,8 @@ const Particle = () => {
         <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }} className='fdgjdkfgkhdbgd' />
         {filteredParticles.map((data, index) => {
           const style = getParticleStyle(index);
-          const color = data.tag === 'TECH' ? '#B3D658' :
-                        data.tag === 'STRATEGIES' ? '#2C55ED' :
+          const color = data.tag === 'Tech' ? '#2C55ED' :
+                        data.tag === 'Strategy' ? '#B3D658' :
                         '#E0076A'; // For BRAND
           return (
             <div
@@ -625,3 +622,4 @@ const Particle = () => {
 };
 
 export default Particle;
+

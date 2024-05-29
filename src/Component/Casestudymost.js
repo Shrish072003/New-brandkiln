@@ -7,7 +7,7 @@ import image3 from '../Images/01_BK-Offerings_Brand4.png';
 
 const caseStudies = [
     {
-        color: 'green',
+        color: 'blue',  // Changed to blue for TECH
         tag: 'TECH',
         image: image1,
         title: 'Fusing French Elegance with Indian Tastes',
@@ -15,7 +15,7 @@ const caseStudies = [
         link: '/tech'
     },
     {
-        color: 'blue',
+        color: 'green',  // Changed to green for STRATEGY
         tag: 'STRATEGY',
         image: image2,
         title: 'Innovating the Future',
@@ -30,54 +30,7 @@ const caseStudies = [
         content: 'Visibility is key in competitive markets...',
         link: '/brand-enhancement'
     },
-    {
-        color: 'green',
-        tag: 'TECH',
-        image: image1,
-        title: 'Fusing French Elegance with Indian Tastes',
-        content: 'La Chocolat, after a successful niche debut, aimed to penetrate...',
-        link: '/tech'
-    },
-    {
-        color: 'pink',
-        tag: 'BRAND',
-        image: image3,
-        title: 'Enhancing Brand Visibility',
-        content: 'Visibility is key in competitive markets...',
-        link: '/brand-enhancement'
-    },
-    {
-        color: 'blue',
-        tag: 'STRATEGY',
-        image: image2,
-        title: 'Innovating the Future',
-        content: 'Exploring innovative approaches in technology integration...',
-        link: '/strategy'
-    },
-    {
-        color: 'pink',
-        tag: 'BRAND',
-        image: image3,
-        title: 'Building Brand Identity',
-        content: 'Crafting a unique identity in a crowded market is vital...',
-        link: '/brand'
-    },
-    {
-        color: 'green',
-        tag: 'TECH',
-        image: image1,
-        title: 'Fusing French Elegance with Indian Tastes',
-        content: 'La Chocolat, after a successful niche debut, aimed to penetrate...',
-        link: '/tech'
-    },
-    {
-        color: 'pink',
-        tag: 'BRAND',
-        image: image3,
-        title: 'Enhancing Brand Visibility',
-        content: 'Visibility is key in competitive markets...',
-        link: '/brand-enhancement'
-    }
+    // Add other case studies with updated colors as needed
 ];
 
 const Casestudymost = () => {
@@ -100,10 +53,10 @@ const Casestudymost = () => {
             <div className='d-flex gap-2 '>
                 <button className={`boll ${selectedFilter === 'All' ? 'active' : ''}`} onClick={() => handleFilterChange('All')}></button>
                 {selectedFilter === 'All' && <span className='filter-label filter-text'>All</span>}
-                <button className={`boll bollone ${selectedFilter === 'Tech' ? 'active' : ''}`} onClick={() => handleFilterChange('Tech')}></button>
-                {selectedFilter === 'Tech' && <span className='filter-label filter-text'>Tech</span>}
-                <button className={`boll bolltwo ${selectedFilter === 'Strategy filter-text' ? 'active' : ''}`} onClick={() => handleFilterChange('Strategy')}></button>
+                <button className={`boll bollone ${selectedFilter === 'Strategy' ? 'active' : ''}`} onClick={() => handleFilterChange('Strategy')}></button>
                 {selectedFilter === 'Strategy' && <span className='filter-label filter-text'>Strategy</span>}
+                <button className={`boll bolltwo ${selectedFilter === 'Tech' ? 'active' : ''}`} onClick={() => handleFilterChange('Tech')}></button>
+                {selectedFilter === 'Tech' && <span className='filter-label filter-text'>Tech</span>}
                 <button className={`boll bollthree ${selectedFilter === 'Brand' ? 'active' : ''}`} onClick={() => handleFilterChange('Brand')}></button>
                 {selectedFilter === 'Brand' && <span className='filter-label'>Brand</span>}
             </div>
