@@ -1,93 +1,32 @@
 [
     {
-      "image": "image_url_1",
-      "headline": "Particle 1 Headline",
-      "text": "Particle 1 Text",
-      "tag": "Tech"
+      "image": "https://brandkiln.com/static/media/Nirdhwani.d664eadb5335de1148c0.png",
+      "headline": "Nirdhwani Technologies",
+      "text": "Brand rejuvenation and market resonance, globally",
+      "tag": "Brand",
+      "link" :"/case-study/NirDhwani"
     },
     {
-      "image": "image_url_1",
-      "headline": "Particle 1 Headline",
-      "text": "Particle 1 Text",
-      "tag": "Tech"
+      "image": "https://brandkiln.com/static/media/Nirdhwani.d664eadb5335de1148c0.png",
+      "headline": "Maritime Research Center",
+      "text": "Brand identity and Go-to-market, for thinktank organization",
+      "tag": "Brand",
+      "link" :"/case-study/Maritime"
     },
     {
-      "image": "image_url_1",
-      "headline": "Particle 1 Headline",
-      "text": "Particle 1 Text",
-      "tag": "Tech"
+      "image": "https://brandkiln.com/static/media/Nirdhwani.d664eadb5335de1148c0.png",
+      "headline": "Supreme Petrochem",
+      "text": "Strategic Circular economic initiative for India’s largest styrene producer",
+      "tag": "Brand",
+      "link" :"/case-study/Supreme-Petrochem"
     },
     {
-      "image": "image_url_1",
-      "headline": "Particle 1 Headline",
-      "text": "Particle 1 Text",
-      "tag": "Tech"
-    },
-    {
-      "image": "image_url_1",
-      "headline": "Particle 1 Headline",
-      "text": "Particle 1 Text",
-      "tag": "Tech"
-    },
-    {
-      "image": "image_url_2",
-      "headline": "Particle 2 Headline",
-      "text": "Particle 2 Text",
-      "tag": "Strategy"
-    },
-    {
-      "image": "image_url_3",
-      "headline": "Particle 3 Headline",
-      "text": "Particle 3 Text",
-      "tag": "Brand"
-    },
-    {
-      "image": "image_url_4",
-      "headline": "Particle 4 Headline",
-      "text": "Particle 4 Text",
-      "tag": "Tech"
-    },
-    {
-      "image": "image_url_5",
-      "headline": "Particle 5 Headline",
-      "text": "Particle 5 Text",
-      "tag": "Strategy"
-    },
-    {
-      "image": "image_url_5",
-      "headline": "Particle 5 Headline",
-      "text": "Particle 5 Text",
-      "tag": "Strategy"
-    },
-    {
-      "image": "image_url_5",
-      "headline": "Particle 5 Headline",
-      "text": "Particle 5 Text",
-      "tag": "Strategy"
-    },
-    {
-      "image": "image_url_5",
-      "headline": "Particle 5 Headline",
-      "text": "Particle 5 Text",
-      "tag": "Strategy"
-    },
-    {
-      "image": "image_url_5",
-      "headline": "Particle 5 Headline",
-      "text": "Particle 5 Text",
-      "tag": "Strategy"
-    },
-    {
-      "image": "image_url_5",
-      "headline": "Particle 5 Headline",
-      "text": "Particle 5 Text",
-      "tag": "Strategy"
-    },
-    {
-      "image": "image_url_6",
-      "headline": "Particle 6 Headline",
-      "text": "Particle 6 Text",
-      "tag": "Brand"
+      "image": "https://brandkiln.com/static/media/Nirdhwani.d664eadb5335de1148c0.png",
+      "headline": "Motor Octane",
+      "text": "Complete Tech & Brand infrastructure: Asia’s largest motoring channel",
+      "tag": "Tech",
+      "link" :"/case-study/MotorOctane"
     }
+   
   ]
   

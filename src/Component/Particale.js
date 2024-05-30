@@ -435,6 +435,7 @@ import Footer from './footer.js';
 import './particles.scss';
 import ParticleData from './particle.json';
 import { ImCross } from "react-icons/im";
+import { Link } from 'react-router-dom';
 
 const Particle = () => {
   const containerRef = useRef(null);
@@ -498,8 +499,8 @@ const Particle = () => {
   }, []);
 
   // Function to handle click on particle
-  const handleParticleClick = (image, headline, text, index, event) => {
-    setPopupContent({ image, headline, text }); // Set the popup content when clicked
+  const handleParticleClick = (image, headline, text, link, index, event) => {
+    setPopupContent({ image, headline, text, link }); // Set the popup content when clicked
     setPausedParticleIndex(index); // Store the index of the clicked particle
     const particles = containerRef.current.getElementsByClassName('particle');
     particles[index].style.animationPlayState = 'paused';
@@ -601,16 +602,17 @@ const Particle = () => {
               className="particle"
               key={index}
               style={{ top: `auto`, backgroundColor: color, ...style }}
-              onClick={(event) => handleParticleClick(data.image, data.headline, data.text, index, event)} // Set popup content on click
+              onClick={(event) => handleParticleClick(data.image, data.headline, data.text, data.link, index, event)} // Set popup content on click
             ></div>
           );
         })}
         {popupContent && (
           <div className="ghfghfghfg" style={{ top: popupPosition.y, left: popupPosition.x, background: gradientBackground }}>
             <div className='sddmmdfsds'>
-              <img src={popupContent.image} crossOrigin='anonymous' alt="Particle Detail"/>
-              <h2>{popupContent.headline}</h2>
+              <div className='d-flex gap-3 align-items-center'><img src={popupContent.image} crossOrigin='anonymous' alt="Particle Detail"/>
+              <h2 className='hedlineofpop'>{popupContent.headline}</h2></div>
               <p>{popupContent.text}</p>
+              <Link className='mainlinkonpopup' to={popupContent.link}>Read more</Link>
             </div>
             <div className="close-buttonfhbf" onClick={handleClosePopup}><ImCross /></div>
           </div>
