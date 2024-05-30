@@ -3,6 +3,8 @@ import Merce from '../Images/merce.png';
 import { FaPlus, FaMinus, FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import MRCImage from '../Images/BMW.png';
 
+import torres from '../Images/Logo_s/Torres.png';
+
 const caseStudies = [
   {
     title: 'The Challenge: Driving Digital Distinction',
@@ -44,8 +46,10 @@ const Casestudy = () => {
 
   return (
     <>
-      <section className='d-flex align-items-center justify-content-center'>
-        
+ <section className='d-flex gap-5 justify-content-center'>
+      <div className='w-20 mt-5'>
+          <img src={torres} />
+          </div>         
         <div className='w-80'>
           <section className='about-faq-section'>
             <div className='about-text mb-9'>CASE STUDY: Torres Automotive Group</div>

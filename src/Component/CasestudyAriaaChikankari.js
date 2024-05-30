@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Merce from '../Images/merce.png';
 import { FaPlus, FaMinus, FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import MRCImage from '../Images/MRC CaseStudy.jpg';
+// import Ariaa from '../Images/Logo_s/';
 
 const caseStudies = [
   {
@@ -61,7 +62,9 @@ const Casestudy = () => {
   return (
     <>
       <section className='d-flex align-items-center justify-content-center'>
-        
+        <div className='w-20'>
+          {/* <img src={Ariaa} /> */}
+          </div>        
         <div className='w-80'>
           <section className='about-faq-section'>
             <div className='about-text mb-9'>CASE STUDY: Ariaa Chikankari</div>

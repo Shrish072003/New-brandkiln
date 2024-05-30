@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Merce from '../Images/merce.png';
 import { FaPlus, FaMinus, FaCaretLeft, FaCaretRight } from 'react-icons/fa';
 import MRCImage from '../Images/Azelis.jpg';
+import Azelis from '../Images/Logo_s/Azelis.png';
 
 const caseStudies = [
   {
@@ -35,8 +36,10 @@ const Casestudy = () => {
 
   return (
     <>
-      <section className='d-flex align-items-center justify-content-center'>
-        
+      <section className='d-flex gap-5 justify-content-center'>
+      <div className='w-20 mt-5'>
+          <img src={Azelis} />
+          </div> 
         <div className='w-80'>
           <section className='about-faq-section'>
             <div className='about-text mb-9'>CASE STUDY: Azelis</div>

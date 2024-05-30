@@ -5,6 +5,7 @@ import image1 from '../Images/01_BK-Offerings_Brand4.png';
 import image2 from '../Images/BMW.png';
 import image3 from '../Images/01_BK-Offerings_Brand4.png';
 
+
 const caseStudies = [
     {
         color: 'blue',  // Changed to blue for TECH
