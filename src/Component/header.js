@@ -6,10 +6,8 @@ import imgBk2 from '../Images/bklogoblack.png';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 
-
 const MenuToggle = () => {
-  const location = useLocation();  // This hook provides the current location object
-
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isMenuOpennew, setIsMenuOpennew] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState('India');
@@ -33,11 +31,8 @@ const MenuToggle = () => {
     localStorage.setItem('selectedCountry', country);
     setAvailableCountries(allCountries.filter(c => c !== country));
     setIsMenuOpennew(false);
-
-    // Reload the page after updating the state
     window.location.reload();
   };
-
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -55,7 +50,16 @@ const MenuToggle = () => {
     <>
       <div className='d-flex justify-content-between align-items-center w-100 mainheadder'>
         <div className='mainbklogod' onClick={handleClick}>
-        <img src={location.pathname === '/' ? imgBk : imgBk2} alt="Logo" />
+          <img 
+            className={`logo ${location.pathname === '/' ? 'logo-home' : 'logo-other'}`} 
+            src={location.pathname === '/' ? imgBk : imgBk2} 
+            alt="Logo" 
+          />
+          <img 
+            className="logo-mobile" 
+            src={imgBk2} 
+            alt="Logo" 
+          />
         </div>
 
         <div>
@@ -93,34 +97,30 @@ const MenuToggle = () => {
               </ul>
             </div>
 
-<div className='mainrightkd mt-5 '>
-  <div><Link to="/">Home</Link></div>
-  <div>
-    <Link to="/">Brand Studio</Link>
-  </div>
-  <ul className='sdfhjfgf'>
-    <li><Link to="/brand-strategy">Brand Strategy</Link></li>
-    <li><Link to="/brand-positioning">Brand Positioning</Link></li>
-    <li><Link to="/brand-innovation">Experience innovation</Link></li>
-    <li><Link to="/content-services">Content Services</Link></li>
-  </ul>
-  <div><Link to="/">Tech Kiln</Link></div>
-  <ul className='sdfhjfgf2'>
-    <li><Link to="/metaverse">Metaverse services</Link></li>
-    <li><Link to="/e-learning-development">eLearning development</Link></li>
-    <li><Link to="/digital-ecosystems">Digital ecosystems</Link></li>
-    <li><Link to="/apps-and-platform-development">Apps & Platform dev</Link></li>
-  </ul>
-  {/* <div><Link to="/resources">Resources</Link></div> */}
-  <div><Link to="/about">About</Link></div>
-</div>
-<hr style={{color:'#fff'}}/>
-<div style={{color:'gray'}}>
-New business inquiries: <br></br>Sales@BrandKiln.com
-</div>
-
+            <div className='mainrightkd mt-5 '>
+              <div><Link to="/">Home</Link></div>
+              <div><Link to="/">Brand Studio</Link></div>
+              <ul className='sdfhjfgf'>
+                <li><Link to="/brand-strategy">Brand Strategy</Link></li>
+                <li><Link to="/brand-positioning">Brand Positioning</Link></li>
+                <li><Link to="/brand-innovation">Experience innovation</Link></li>
+                <li><Link to="/content-services">Content Services</Link></li>
+              </ul>
+              <div><Link to="/">Tech Kiln</Link></div>
+              <ul className='sdfhjfgf2'>
+                <li><Link to="/metaverse">Metaverse services</Link></li>
+                <li><Link to="/e-learning-development">eLearning development</Link></li>
+                <li><Link to="/digital-ecosystems">Digital ecosystems</Link></li>
+                <li><Link to="/apps-and-platform-development">Apps & Platform dev</Link></li>
+              </ul>
+              <div><Link to="/case-study">Knowledge center</Link></div>
+              <div><Link to="/about">About</Link></div>
+            </div>
+            <hr style={{color:'#fff'}}/>
+            <div style={{color:'gray'}}>
+              New business inquiries: <br/>Sales@BrandKiln.com
+            </div>
           </div>
-
         </div>
       )}
     </>

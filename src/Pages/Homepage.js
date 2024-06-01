@@ -3,13 +3,14 @@ import Mainsection from '../Component/mainsection';
 import People from '../Component/Peoplesection';
 import Particale from '../Component/Particale.js';
 import Header from '../Component/header';
-import Preloader from '../Component/Preloader.js'; // Import your Preloader component
+import Preloader from '../Component/Preloader.js'; 
+import CaseStudyMobil from '../Component/CaseStudyMobil.js'
 import './main.css';
 
 const Homepage = () => {
   const [currentSection, setCurrentSection] = useState(0);
   const [isLoading, setIsLoading] = useState(true); // State to manage loading status
-  const sectionRefs = useRef([React.createRef(), React.createRef(), React.createRef()]);
+  const sectionRefs = useRef([React.createRef(),React.createRef(), React.createRef(), React.createRef()]);
 
   useEffect(() => {
     // Simulate loading delay with setTimeout (you can replace this with actual data fetching)
@@ -57,8 +58,11 @@ const Homepage = () => {
           <div ref={sectionRefs.current[1]}>
             <People />
           </div>
-          <div ref={sectionRefs.current[2]}>
+          <div ref={sectionRefs.current[2]}  className="particale-section">
             <Particale />
+          </div>
+          <div ref={sectionRefs.current[3]}  className="particale-sectionm">
+            <CaseStudyMobil />
           </div>
         </>
       )}
