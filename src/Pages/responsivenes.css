@@ -1,0 +1,414 @@
+@media only screen and (max-width: 600px) {
+    .particale-section {
+      display: none;
+    }
+    .main-bodyfront .mainheadder {
+      position: absolute;
+      padding: 15px 0px 15px 0px;
+      gap: 0;
+      background-color: #fff !important;
+      z-index: 9999;
+      justify-content: center !important;
+    }
+     .mainheadder {
+      position: absolute;
+      padding: 15px 0px 15px 0px;
+      gap: 0;
+      background-color: #fff !important;
+      z-index: 9999;
+      justify-content: center !important;
+    }
+  .hero-section {
+    height: 50vh;
+    padding-top: 80px;
+    width: 200%;
+  
+  }
+  .hero-section .hero-image {
+    height: 50vh;
+  
+  
+  }
+  .studio {
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 36px;
+  }
+  .hero-image1{
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .Flyout {
+    position: absolute;
+    top: 150px;
+    right: 10%;
+  }
+  .main-bodyfront{
+    overflow: hidden;
+  }
+  .partial-page-header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    z-index: 8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: openFromRight 0.5s ease backwards;
+    overflow: hidden;
+  }
+  .menuToggle {
+    width: 70px;
+    height: 70px;
+    margin-top: -10px;
+  }
+  .cross span:nth-child(2) {
+    width: 0%;
+    height: 4px;
+    position: absolute;
+    left: 70%;
+    top: 20px;
+    transition-delay: 0.25s;
+  }
+  .cross span:nth-child(1) {
+    height: 0%;
+    width: 4px;
+    position: absolute;
+    top: 18%;
+    left: 45px;
+    transition-delay: 0s;
+  }
+  .hamburger, .cross {
+    position: absolute;
+    height: 70%;
+    width: 70%;
+  }
+  .main-bodyfront .hamburger span {
+    top: 20px;
+    left: 25px;
+    margin: 7px 0;
+  }
+  .maintosecteion img {
+    width: 120px;
+  }
+  .bklogotext {
+    font-size: 21px;
+  }
+  .maintosecteion {
+    padding: 100px 30px 50px 30px;
+    align-items: center;
+    gap: 15px;
+  }
+  .undermain{
+    text-align: end;
+          font-size: 16px !important;
+  }
+  .buoton {
+    display: inline-flex;
+    padding: 10px 15px;
+    font-size: 18px !important;
+  }
+  .anothersectionpeop {
+    height: 60vh;
+  
+  }
+  .colortags {
+    padding:5px 5px;
+    font-size: 12px;
+    border-radius: 12px;
+  }
+  .colortags2 {
+    left: 40%;
+    margin-top: 60px;
+  }
+  .colortags3 {
+    left: 1%;
+    margin-top: 14vh;
+  }
+  .colortags4 {
+    left: 20%;
+    margin-top: 20vh;
+    background: #F06129;
+  }
+  .colortags5 {
+    left: 11%;
+    margin-top: 26vh;
+    background: #F03D29;
+  }
+  .undermaindiv {
+    position: relative;
+    bottom: 0px;
+  
+    margin-top: 20px;
+  }
+  
+  
+  .particale-sectionm{
+    display: block !important;
+  
+  }
+  
+  .fgdfkgldkfg {
+    padding: 10px;
+  }
+  
+  .maintosecteion {
+    display: flex;
+    align-items: center;
+  }
+  
+  .bklogotext {
+    margin-left: 10px;
+  }
+  
+  .gkhlkfghfg {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .boll {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .boll.active {
+    outline: 2px solid #000;
+  }
+  
+  .filter-label {
+    margin-left: 5px;
+    font-size: 14px;
+  }
+  
+  .case-study-section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  
+  .case-study-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .case-study-card {
+    display: flex;
+    border-radius:20px;
+    overflow: hidden;
+    padding: 10px;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .case-study-image {
+    width: 30%;
+    height: auto;
+  }
+  
+  .case-study-content {
+    padding: 10px;
+    color: #fff;
+  }
+  
+  .case-study-text {
+    margin: 0;
+  }
+  
+  .case-study-link {
+    margin-top: 10px;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .case-study-link:hover {
+    text-decoration: underline;
+  }
+  
+  .load-more-button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center;
+  }
+  
+  .filter-wrapper{
+    display: flex;
+  }
+  
+  .dfnghdhbf {
+    padding: 20px 5px ;
+    background-color: #fff;
+    position: relative;
+    top: 0;
+    align-items: center;
+  }
+  .dfgdfgdf {
+    font-size: 18px;
+    display: none;
+  }
+  .dfnghdhbf div{
+    font-size: 18px;
+  
+  }
+  .hchdfc{
+    align-items: center;
+    justify-content: center;
+  }
+  .dghkgjkf {
+    padding: 50px 30px 50px 30px;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  
+  
+  .case-study-card {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .case-study-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); /* Adjust the gradient as needed */
+    pointer-events: none; /* Allows interactions to pass through the overlay */
+  }
+  
+  
+  .vis{
+    display: block !important;
+  }
+  .hiden{
+    display: none !important;
+  }
+  .visdesk{
+    display: flex !important;
+  }
+  .visdesk2{
+    display: block !important;
+  }
+  .dfgfgdf{
+    background: linear-gradient(90deg, #EEA026 73.69%, #E93A27 85.05%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 65px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .dfgdfgf{
+    padding-left: 20px ;
+  }
+.kfgjhdfgkjhdg,.bkblue.mt-5.mb-9  {
+  display: none !important;
+}
+.about-faq-section-new {
+  padding: 30px;
+  padding-top: 120px;
+}
+.sgdfgdg{
+  width: 100%;
+}
+.about-faq-section-new .gap-3{
+  overflow: scroll;
+
+}
+.bluetitel{
+  margin-top: 15px;
+}
+.bkblue iframe{
+  width: -webkit-fill-available;
+  height: 250px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  }
+  
+  .logo {
+    display: none;
+  }
+  
+  .logo-mobile {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .logo-mobile {
+      display: block;
+      width: 70%;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .logo {
+      display: block;
+    }
+    .visdesk{
+      display: none !important;
+    }
+  }
+  
+  .particale-sectionm{
+    display: none;
+  }
+  .visdesk{
+    display: none;
+  }
+  .visdesk2{
+    display: none;
+  }
+  .hiden{
+    display: block;
+  }

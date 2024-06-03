@@ -23,8 +23,16 @@ const MainSection = () => {
 
 
 
+  const [isFirstImage, setIsFirstImage] = useState(true);
+
+  const toggleImage = () => {
+    setIsFirstImage(!isFirstImage);
+  };
+
+
   return (
-    <section className='d-flex hero-section' style={{ backgroundImage: `url(${imgBack})` }} >
+    <>
+    <section className='d-flex hero-section hiden' style={{ backgroundImage: `url(${imgBack})` }} >
       <div
         className='w-50 hero-image hero-image1'
         style={{
@@ -64,6 +72,48 @@ const MainSection = () => {
         <section className='studio'>TECH</section>
       </div>
     </section>
+
+
+
+
+
+    <section className='d-flex hero-section visdesk'>
+      {isFirstImage ? (
+        <div
+          className='w-50 hero-image hero-image1'
+          style={{
+            backgroundImage: `url(${imgOne})`,
+            backgroundPosition: 'right',
+          }}
+          onClick={toggleImage}
+        >
+          BRAND
+          <span className='studio'>STUDIO</span>
+          <div className='undermaindiv' style={{ alignItems: 'end' }}>
+            <span className='undermain'>We curate Experiences</span>
+            <Link to='/brand-strategy' className='buoton'>MORE</Link>
+          </div>
+        </div>
+      ) : (
+        <div
+          className='w-50 hero-image hero-image1 dfgdfgf'
+          style={{
+            backgroundImage: `url(${imgTwo})`,
+            backgroundPosition: '-70px',
+            alignItems: 'flex-start'
+          }}
+          onClick={toggleImage}
+        >
+         <span className='dfgfgdf'>KILN</span> 
+          <section className='studio'>TECH</section>
+          <div className='undermaindiv'  style={{ alignItems: 'start' }}>
+            <div className='undermain'>We Code Excellence</div>
+            <Link to='/metaverse' className='buoton'>MORE</Link>
+          </div>
+        </div>
+      )}
+    </section>
+  </>
   );
 };
 

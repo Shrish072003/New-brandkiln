@@ -6,6 +6,8 @@ import Header from '../Component/header';
 import Preloader from '../Component/Preloader.js'; 
 import CaseStudyMobil from '../Component/CaseStudyMobil.js'
 import './main.css';
+import './responsivenes.css';
+
 
 const Homepage = () => {
   const [currentSection, setCurrentSection] = useState(0);

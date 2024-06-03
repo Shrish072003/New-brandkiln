@@ -3,14 +3,16 @@ import React from 'react'
 import Header from '../Component/header.js'
 import DigitalEcosystems from '../Component/DigitalEcosystems.js'
 import Particale from '../Component/Particale.js';
-
+import CaseStudyMobil from '../Component/CaseStudyMobil.js'
+import './responsivenes.css';
 
 const Metaverse = () => {
   return (
     <>
           <Header/> 
           <DigitalEcosystems /> 
-          <Particale />
+          <div  className='hiden' ><Particale/></div>
+      <div  className='visdesk2' ><CaseStudyMobil/></div>
 
     </>
   )
