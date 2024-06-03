@@ -339,9 +339,30 @@
   width: -webkit-fill-available;
   height: 250px;
 }
-
-
-
+.backgroundimagedf {
+  flex-direction: column;
+}
+.backgroundimagedf .w-50{
+  width: 100% !important;
+}
+.form-container.show {
+  margin-top: 20px;
+  max-height: 100vh;
+  transition: max-height 0.5s ease-in;
+}
+.backgroundimagedf {
+  height: 100vh;
+  background-size: cover;
+}
+.inputrir {
+  border-right: none;
+  border-bottom: none;
+  border-top: none;
+  width: 60%;
+  position: absolute;
+  right: 15px;
+  padding-left: 15px;
+}
 
 
 
