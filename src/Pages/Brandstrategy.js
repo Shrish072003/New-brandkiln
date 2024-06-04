@@ -15,9 +15,6 @@ const Strategy = () => {
       <Brandstrategy />
       <div  className='hiden' ><Particale/></div>
       <div  className='visdesk2' ><CaseStudyMobil/></div>
-      
-
-
 
     </>
   )

@@ -26,6 +26,18 @@ const MenuToggle = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const handleCountryChange = (country) => {
     setSelectedCountry(country);
     localStorage.setItem('selectedCountry', country);
