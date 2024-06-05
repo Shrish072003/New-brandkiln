@@ -2,6 +2,9 @@
   .particale-section {
     display: none;
   }
+  body{
+    overflow-x: hidden;
+  }
 
   .main-bodyfront .mainheadder {
     position: absolute;
@@ -103,12 +106,22 @@
     width: 70%;
   }
 
+  .hamburger{
+    margin-top: -5px;
+  }
+
+   .main-bodyfront .hamburger{
+    margin-top: 0px;
+  }
+
   .main-bodyfront .hamburger span {
     top: 20px;
     left: 25px;
     margin: 7px 0;
   }
-
+  .hamburger span {
+    margin: 7px 0;
+}
   .maintosecteion img {
     width: 120px;
   }
@@ -417,15 +430,70 @@
   .backgroundimagedf .m-5 {
     margin: 0 !important;
   }
+  .w-998, .text-wrapper-2sdfj, .w-80{
+    width: -webkit-fill-available !important;
+  }
+ .about-faq-textf{
+    width: 90% !important;
+  }
+  .circlebefore {
+    width: 15px;
+    height: 15px;
+    padding-right: 15px;
+}
+.d-flex.gap-5.justify-content-center{
+  flex-direction: column;
+}
+.w-20.mt-5{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: -webkit-fill-available !important;
 
+}
+.about-text{
+  margin: 18px;
+  margin-bottom: 40px;
+}
+.about-faq-textf{
+  padding-left: 40px;
+}
+.text-wrapper-2sdfj{
+  align-items: center;
+  justify-content: space-between !important;
+}
+.faqs > div:first-of-type {
+  width: 90% !important;
+}
+.faqs .mainupertext {
+  width: -webkit-fill-available !important;
+}
+.faqs img {
+  object-fit: fill;
+    width: -webkit-fill-available;
+}
+.mobileimgaest{
+  width: -webkit-fill-available;
+  display: block !important;
+}
+.dkfdkfkdgkg a{
+  font-family: Montserrat;
+font-size: 25px;
+font-weight: 600;
+line-height: 19.5px;
+text-align: left;
+color: var(--Pink, #BD125E) !important;
 
+}
+.dkfdkfkdgkg2 a{
+  font-family: Montserrat;
+font-size: 25px;
+font-weight: 600;
+line-height: 25px;
+text-align: left;
+color: #2638d9 !important;
 
-
-
-
-
-
-
+}
 
 
 
@@ -489,4 +557,7 @@
 
 .hiden {
   display: block;
+}
+.mobileimgaest{
+  display: none;
 }

@@ -4,6 +4,8 @@ import Header from '../Component/header.js'
 import CasestudyCovince from '../Component/CasestudyCovince.js'
 import Particale from '../Component/Particale.js';
 import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import CaseStudyMobil from '../Component/CaseStudyMobil.js'
+
 
 const Casestudy = () => {
   return (
@@ -27,7 +29,8 @@ const Casestudy = () => {
                     </div>
                 </div>
             </section>
-         <Particale />
+            <div  className='hiden' ><Particale/></div>
+      <div  className='visdesk2' ><CaseStudyMobil/></div>
    </>
   )
 }
