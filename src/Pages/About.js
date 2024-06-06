@@ -3,6 +3,7 @@ import React from 'react'
 import Header from '../Component/header'
 import Faqs from '../Component/Faqs'
 import Particale from '../Component/Particale.js';
+import CaseStudyMobil from '../Component/CaseStudyMobil.js'
 
 
 const About = () => {
@@ -10,7 +11,8 @@ const About = () => {
     <>
       <Header/>  
       <Faqs/>  
-      <Particale />
+      <div  className='hiden' ><Particale/></div>
+      <div  className='visdesk2' ><CaseStudyMobil/></div>
        
     </>
   )

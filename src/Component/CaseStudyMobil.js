@@ -55,6 +55,7 @@ const CaseStudyMobil = () => {
             {visibleData.map((item, index) => (
               <div key={index} className='case-study-card d-flex' style={{ background: tagColors[item.tag] }}>
                 <div className='case-study-content d-flex flex-column'>
+                  <div className='tabgfkfgkfkhd'>{item.tag}</div>
                   <img src={item.image} alt={item.headline} className='case-study-image' />
                   <p className='case-study-text'>{item.text}</p>
                 </div>

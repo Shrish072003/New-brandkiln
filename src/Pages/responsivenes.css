@@ -5,6 +5,11 @@
   body{
     overflow-x: hidden;
   }
+  
+.fjhghjghj .maintrjjbfg{
+  width: 100% !important;
+}
+
 
   .main-bodyfront .mainheadder {
     position: absolute;
@@ -333,7 +338,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    /* background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)); */
     /* Adjust the gradient as needed */
     pointer-events: none;
     /* Allows interactions to pass through the overlay */
@@ -494,7 +499,70 @@ text-align: left;
 color: #2638d9 !important;
 
 }
+.tabgfkfgkfkhd{
+  position: absolute;
+  right: 30px;
+  font-family: Montserrat;
+font-size: 13px;
+font-weight: 700;
+line-height: 13.41px;
+text-align: left;
 
+}
+.imagesback{
+  display: none !important;
+}
+.bluebigobutton{
+  text-align: left;
+}
+.allcasest{
+  display: block !important;
+}
+.mainbigcard {
+width: 100%;
+}
+.filter-container {
+  padding-top: 30%;
+  flex-direction: column !important;
+  margin-left: 0;
+}
+.about-faq-section{
+  padding: 5px !important;
+}
+.gifimageplac video {
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  object-fit: cover;
+  margin-top: 30px;
+}
+.overlay-content {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  color: white;
+  width: max-content;
+}
+.dgfgdf41gh{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.app {
+  min-height: auto !important;
+  width: -webkit-fill-available !important;
+  /* margin-left: 50px !important; */
+  flex-wrap: nowrap;
+}
+
+.mobiledisplay{
+  display: flex !important;
+}
+.deapshow{
+  display: none !important;
+}
 
 
 
@@ -541,6 +609,13 @@ color: #2638d9 !important;
   .visdesk {
     display: none !important;
   }
+  .mobiledisplay{
+    display: none !important;
+  }
+  .deapshow{
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .particale-sectionm {
@@ -560,4 +635,10 @@ color: #2638d9 !important;
 }
 .mobileimgaest{
   display: none;
+}
+.imagesback{
+  display: flex;
+}
+.allcasest{
+  display: flex;
 }

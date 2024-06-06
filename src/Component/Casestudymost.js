@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 
 
-const caseStudies = [
+const caseStudies  = [
 
     {
         "image": "https://brandkiln.com/static/media/Nirdhwani.d664eadb5335de1148c0.png",
@@ -90,14 +90,14 @@ const caseStudies = [
         "link": "/case-study/covince-innovation"
       },
       {
-        "image": "http://localhost:3000/static/media/Real%20estate%20Metaverse.954669e8b820fb16efda.png",
+        "image": "http://brandkiln.com/static/media/Real%20estate%20Metaverse.954669e8b820fb16efda.png",
         "headline": "Real Estate Metaverse",
         "text": "Hyper real VR Metaverse that accelerates real estate sales by 50%",
         "tag": "Tech",
         "link": "/case-study/Realty-Metaverse"
       },
       {
-        "image": "http://localhost:3000/static/media/Real%20estate%20Metaverse.954669e8b820fb16efda.png",
+        "image": "http://brandkiln.com/static/media/Real%20estate%20Metaverse.954669e8b820fb16efda.png",
         "headline": "Real Estate Metaverse",
         "text": "Hyper real VR Metaverse that accelerates real estate sales by 50%",
         "tag": "Brand",
@@ -118,42 +118,42 @@ const caseStudies = [
         "link": "/case-study/Pinktum-AG"
       },
       {
-        "image": "http://localhost:3000/static/media/My%20Ideal%20Wedding.f5b83cf27476ff41932d.png",
+        "image": "http://brandkiln.com/static/media/My%20Ideal%20Wedding.f5b83cf27476ff41932d.png",
         "headline": "Deep-tech events platform",
         "text": "Australia’s largest wedding planning platform- digitized!",
         "tag": "Strategy",
         "link": "/case-study/My-Ideal-Wedding"
       },
       {
-        "image": "http://localhost:3000/static/media/My%20Ideal%20Wedding.f5b83cf27476ff41932d.png",
+        "image": "http://brandkiln.com/static/media/My%20Ideal%20Wedding.f5b83cf27476ff41932d.png",
         "headline": "Deep-tech events platform",
         "text": "Australia’s largest wedding planning platform- digitized!",
         "tag": "Tech",
         "link": "/case-study/My-Ideal-Wedding"
       },
       {
-        "image": "http://localhost:3000/static/media/Jadcom.b8bda03dd33437e6f281.png",
+        "image": "http://brandkiln.com/static/media/Jadcom.b8bda03dd33437e6f281.png",
         "headline": "Jadcom LLC",
         "text": "Communicating across cultures… to achive multi category brand resonance",
         "tag": "Strategy",
         "link": "/case-study/Jadcom"
       },
       {
-        "image": "http://localhost:3000/static/media/Jadcom.b8bda03dd33437e6f281.png",
+        "image": "http://brandkiln.com/static/media/Jadcom.b8bda03dd33437e6f281.png",
         "headline": "Jadcom LLC",
         "text": "Communicating across cultures… to achive multi category brand resonance",
         "tag": "Brand",
         "link": "/case-study/Jadcom"
       },
       {
-        "image": "http://localhost:3000/static/media/COnfidential.9338efa625752e17e681.png",
+        "image": "http://brandkiln.com/static/media/COnfidential.9338efa625752e17e681.png",
         "headline": "World’s leading Private Bank",
         "text": "Customer Experience platform… deep-tech and grounds-up development",
         "tag": "Strategy",
         "link": "/case-study/private-banks"
       },
       {
-        "image": "http://localhost:3000/static/media/COnfidential.9338efa625752e17e681.png",
+        "image": "http://brandkiln.com/static/media/COnfidential.9338efa625752e17e681.png",
         "headline": "World’s leading Private Bank",
         "text": "Customer Experience platform… deep-tech and grounds-up development",
         "tag": "Tech",
@@ -167,14 +167,14 @@ const caseStudies = [
         "link": "/case-study/Wedding-bells"
       },
       {
-        "image": "http://localhost:3000/static/media/Azelis.5d2eaf581985debc1653.png",
+        "image": "http://brandkiln.com/static/media/Azelis.5d2eaf581985debc1653.png",
         "headline": "World’s #1 specialty chemicals distributor",
         "text": "Enhancing brand presence and recall across APAC markets",
         "tag": "Strategy",
         "link": "/case-study/Azelis"
       },
       {
-        "image": "http://localhost:3000/static/media/Azelis.5d2eaf581985debc1653.png",
+        "image": "http://brandkiln.com/static/media/Azelis.5d2eaf581985debc1653.png",
         "headline": "World’s #1 specialty chemicals distributor",
         "text": "Enhancing brand presence and recall across APAC markets",
         "tag": "Brand",
@@ -195,7 +195,7 @@ const caseStudies = [
         "link": "/case-study/"
       },
       {
-        "image": "http://localhost:3000/static/media/La%20Chocolat.b8f27fd322b86996a6a7.png",
+        "image": "http://brandkiln.com/static/media/La%20Chocolat.b8f27fd322b86996a6a7.png",
         "headline": "Achieving retail resonance",
         "text": "How the gourmet chocolatiers found their brand persona with our aesthetics",
         "tag": "Brand",
@@ -256,10 +256,6 @@ const caseStudies = [
         const [selectedFilter, setSelectedFilter] = useState('All');
         const [visibleCount, setVisibleCount] = useState(6);
     
-        const filteredCaseStudies = caseStudies.filter(
-            (study) => filter === 'ALL' || study.tag.toUpperCase() === filter
-        );
-    
         const handleFilterChange = (newFilter) => {
             setSelectedFilter(newFilter);
             setFilter(newFilter === 'All' ? 'ALL' : newFilter.toUpperCase());
@@ -269,6 +265,25 @@ const caseStudies = [
         const loadMore = () => {
             setVisibleCount((prevCount) => prevCount + 6);
         };
+    
+        // Function to remove duplicate headlines
+        const removeDuplicates = (studies) => {
+            const seenHeadlines = new Set();
+            return studies.filter(study => {
+                const isDuplicate = seenHeadlines.has(study.headline);
+                if (!isDuplicate) {
+                    seenHeadlines.add(study.headline);
+                }
+                return !isDuplicate;
+            });
+        };
+    
+        // Apply filter and remove duplicates
+        const filteredCaseStudies = caseStudies.filter(
+            (study) => filter === 'ALL' || study.tag.toUpperCase() === filter
+        );
+    
+        const uniqueCaseStudies = removeDuplicates(filteredCaseStudies);
     
         return (
             <>
@@ -286,8 +301,8 @@ const caseStudies = [
                     </div>
                 </section>
                 <section className='d-flex mt-5 justify-content-center imagetes'>
-                    <div className='d-flex gap-4 flex-wrap justify-content-center w-85'>
-                        {filteredCaseStudies.slice(0, visibleCount).map((study, index) => (
+                    <div className='gap-4 flex-wrap justify-content-center w-85 allcasest'>
+                        {uniqueCaseStudies.slice(0, visibleCount).map((study, index) => (
                             <div
                                 key={index}
                                 className={`mainbigcard ${study.tag.toUpperCase() === 'STRATEGY' ? 'greendot' :
@@ -308,7 +323,7 @@ const caseStudies = [
                         ))}
                     </div>
                 </section>
-                {visibleCount < filteredCaseStudies.length && (
+                {visibleCount < uniqueCaseStudies.length && (
                     <section className='d-flex mt-3 justify-content-center'>
                         <button onClick={loadMore} className='load-more-button'>Load More</button>
                     </section>
@@ -317,4 +332,8 @@ const caseStudies = [
         );
     };
     
-    export default Casestudymost;
+    const App = () => (
+        <Casestudymost />
+    );
+    
+    export default App;

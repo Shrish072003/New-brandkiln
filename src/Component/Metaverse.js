@@ -6,6 +6,7 @@ import Topbrands2 from '../Images/Metaverse2.png'
 import Topbrands3 from '../Images/Metaverse3.png'
 import { Link } from 'react-router-dom';
 import Bkblue2 from '../Images/BK_6/BrandPositioningmobil2.png'
+import Carousel from 'react-bootstrap/Carousel';
 
 import FormEngage from './formengage.js';
 
@@ -18,6 +19,7 @@ const Metaverse = () => {
     const handleClick = () => {
         setShowForm(!showForm);
     };
+
 
     const faqData = [
         {
@@ -123,12 +125,28 @@ const Metaverse = () => {
                     </div>
                     <div className='text-styles mt-3'>
                         Future-forward brands recognize the transformative potential of the Metaverse as a tool for brand positioning and audience engagement. By partnering with BrandKiln, brands have unlocked new business models, revenue streams, and accelerated their Web 3.0 pivot. </div>
-                    <div className='d-flex gap-3 w-100 mt-4'>
+                    <div className='gap-3 w-100 mt-4 imagesback'>
                         <img className='sgdfgdg' src={Topbrands1} />
                         <img className='sgdfgdg' src={Topbrands2} />
                         <img className='sgdfgdg' src={Topbrands3} />
 
                     </div>
+
+                    <Carousel className='mobileimgaest mt-3'>
+                        <Carousel.Item interval={3000}>
+                            <img className="d-block sgdfgdg" src={Topbrands1} alt="First slide" />
+                        </Carousel.Item>
+                        <Carousel.Item interval={3000}>
+                            <img className="d-block sgdfgdg" src={Topbrands2} alt="Second slide" />
+                        </Carousel.Item>
+                        <Carousel.Item interval={3000}>
+                            <img className="d-block sgdfgdg" src={Topbrands3} alt="Third slide" />
+                        </Carousel.Item>
+                    </Carousel>
+
+
+
+
                     <div className='text-styles mt-3'>
                         In addition to our bespoke Metaverse services, BrandKiln has deployed its own Corporate Metaverse, which is available for meetings, events, virtual worlds, and digital twin projects. This platform features conversational AI avatars, social zones, meeting halls, and project management leaderboards, offering a comprehensive environment for virtual collaboration and innovation. With Covince Labs AG as our platform partners, we remain focused on creating impactful experiences that deliver memorable user journeys and desired outcomes. Join us and explore the future of brand engagement in the Metaverse.
                     </div>
@@ -150,7 +168,11 @@ const Metaverse = () => {
                             className='bluebigobutton mt-3'
                             onClick={handleClick}
                         >
-                            Engage us for creating your Metaverse presence
+                            Engage us for creating your Metaverse presence <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.0755 22.2428L20.1965 24.3638L26.5625 17.9993L20.198 11.6348L18.077 13.7573L20.8175 16.4993L9.512 16.4993V19.4993L20.8175 19.4993L18.0755 22.2428Z" fill="white"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M29.667 29.667C36.111 23.223 36.111 12.777 29.667 6.333C23.223 -0.111 12.777 -0.111 6.333 6.333C-0.111 12.777 -0.111 23.223 6.333 29.667C12.777 36.111 23.223 36.111 29.667 29.667ZM27.546 27.546C30.0778 25.0142 31.5001 21.5804 31.5001 18C31.5001 14.4196 30.0778 10.9858 27.546 8.454C25.0142 5.92224 21.5804 4.49992 18 4.49992C14.4196 4.49992 10.9858 5.92224 8.454 8.454C5.92224 10.9858 4.49992 14.4196 4.49992 18C4.49992 21.5804 5.92224 25.0142 8.454 27.546C10.9858 30.0778 14.4196 31.5001 18 31.5001C21.5804 31.5001 25.0142 30.0778 27.546 27.546Z" fill="white"/>
+</svg>
+
                         </div>
 
                         <div className={`form-container ${showForm ? 'show' : ''}`}>

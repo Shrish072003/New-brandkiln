@@ -7,6 +7,7 @@ import { ImCross } from "react-icons/im";
 import ProfileCard from './profilecard.js';
 
 import imgBkp from '../Images/bigo.png';
+import imgBkp2 from '../Images/image (4).png';
 import { Link } from 'react-router-dom';
 
 
@@ -88,7 +89,7 @@ const Faqs = () => {
 
 
                 <section>
-                    <div className='faqs'><div style={{ width: '50%', paddingTop: '7px', paddingBottom: '7px', backgroundColor: accordionOpen ? 'white' : 'white' }}>
+                    <div className='faqs fjhghjghj'><div className='maintrjjbfg' style={{ width: '50%', paddingTop: '7px', paddingBottom: '7px', backgroundColor: accordionOpen ? 'white' : 'white' }}>
                         <div onClick={toggleAccordion} style={{ cursor: 'pointer' }} className="text-wrapper-2sdfj d-flex justify-content-between">  <div className='d-flex align-items-center'>
                             <div className='circlebefore'></div>
                             Who we are
@@ -206,8 +207,8 @@ const Faqs = () => {
                         </div>
                             <div> {accordionOpen1 ? <FaMinus className='FaMinus1' /> : <FaPlus className='FaMinus1' />}</div>
                         </div>
-                        <div style={{ height: accordionOpen1 ? '337px' : '0', overflow: 'hidden', transition: 'height 0.3s ease-in-out', backgroundColor: 'white' }} className='mainupertext'>
-                            <div className='d-flex justify-content-between w-998'>
+                        <div style={{ height: accordionOpen1 ? 'auto' : '0', overflow: 'hidden', transition: 'height 0.3s ease-in-out', backgroundColor: 'white' }} className='mainupertext'>
+                            <div className='d-flex justify-content-between w-998 dgfgdf41gh'>
                                 <div className='mainadanfskjndfjsdjf'>
                                     <div className='mt-4 sfgfsjgf'>
                                         <Link to="/brand-strategy" className="text-decoration-none text-dark">
@@ -321,12 +322,14 @@ const Faqs = () => {
 
                                 <div className='maingrrtjk'></div>
                                 <div>
-                                    <img className="mainimagfgfgein-faq" src={imgBkp} />
+                                    <img className="mainimagfgfgein-faq hiden" src={imgBkp} />
+                                    <img className="mainimagfgfgein-faq2 ml-3 visdesk2" src={imgBkp2} />
+
 
                                     {accordionOpen2 && (
 
 
-                                        <div className="button-container">
+                                        <div className="button-container hiden">
                                             <div className="button-wrapper">
                                                 <button className="hover-button fdgfngmfm">m</button>
                                                 <div className="popup">

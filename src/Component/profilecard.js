@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './profile.css';
 
@@ -120,16 +120,80 @@ const profiles = [
 
 ];
 
-const App = () => (
-    <div className="app">
-        {profiles.map((profile, index) => (
-            <div key={index} className="profile-card" style={{ backgroundImage: `url(${profile.image})` }}>
+// const App = () => (
+//     <div className="app">
+//         {profiles.map((profile, index) => (
+//             <div key={index} className="profile-card" style={{ backgroundImage: `url(${profile.image})` }}>
                 
-                <div className="profile-card-content">
+//                 <div className="profile-card-content">
+                    
+//                     <h2>{profile.name}</h2>
+//                     <h3>{profile.designation}</h3>
+//                     <h3>{profile.edu}</h3>
+//                     <p className='thetext'>{profile.description}</p>
+//                 </div>
+//                 <div className='thebackcolor'>
+//                     <h2>{profile.name}</h2>
+//                     <h3>{profile.designation}</h3>
+//                     <h3>{profile.edu}</h3>
+//                     </div>
+//             </div>
+//         ))}
+//     </div>
+// );
+
+// export default App
+
+
+const App = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+  
+    const handlePrev = () => {
+      setCurrentIndex((prevIndex) => (prevIndex === 0 ? profiles.length - 1 : prevIndex - 1));
+    };
+  
+    const handleNext = () => {
+      setCurrentIndex((prevIndex) => (prevIndex === profiles.length - 1 ? 0 : prevIndex + 1));
+    };
+  
+    return (
+        <>
+      <div className="app mobiledisplay">
+                  <div onClick={handlePrev}><svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.890625 7.50021C0.890625 8.90666 1.30768 10.2815 2.08906 11.4509C2.87044 12.6204 3.98105 13.5318 5.28043 14.07C6.57982 14.6082 8.00962 14.7491 9.38904 14.4747C10.7685 14.2003 12.0355 13.523 13.0301 12.5285C14.0246 11.534 14.7018 10.2669 14.9762 8.88752C15.2506 7.5081 15.1098 6.0783 14.5715 4.77891C14.0333 3.47952 13.1219 2.36892 11.9525 1.58754C10.783 0.806163 9.40818 0.389103 8.00174 0.389103C6.11575 0.389103 4.30701 1.13831 2.97342 2.4719C1.63983 3.80549 0.890625 5.61423 0.890625 7.50021ZM7.81062 3.94466C7.92681 4.06342 7.99187 4.22296 7.99187 4.3891C7.99187 4.55525 7.92681 4.71478 7.81062 4.83355L5.77951 6.87799H12.064C12.229 6.87799 12.3872 6.94355 12.5039 7.06024C12.6206 7.17693 12.6862 7.33519 12.6862 7.50021C12.6862 7.66524 12.6206 7.8235 12.5039 7.94019C12.3872 8.05688 12.229 8.12244 12.064 8.12244H5.84174L7.81062 10.0913C7.9285 10.2092 7.99472 10.3691 7.99472 10.5358C7.99472 10.7025 7.9285 10.8623 7.81062 10.9802C7.69275 11.0981 7.53288 11.1643 7.36618 11.1643C7.19948 11.1643 7.03961 11.0981 6.92174 10.9802L3.42396 7.46466L6.93062 3.94466C6.9884 3.88687 7.057 3.84103 7.1325 3.80976C7.20799 3.77849 7.28891 3.76239 7.37062 3.76239C7.45234 3.76239 7.53326 3.77849 7.60875 3.80976C7.68425 3.84103 7.75284 3.88687 7.81062 3.94466Z" fill="#C3C3C3"/>
+</svg>
+</div>
+
+        <div className="profile-card" style={{ backgroundImage: `url(${profiles[currentIndex].image})` }}>
+          <div className="profile-card-content">
+            <h2>{profiles[currentIndex].name}</h2>
+            <h3>{profiles[currentIndex].designation}</h3>
+            <h3>{profiles[currentIndex].edu}</h3>
+            <p className='thetext'>{profiles[currentIndex].description}</p>
+          </div>
+          <div className='thebackcolor'>
+            <h2>{profiles[currentIndex].name}</h2>
+            <h3>{profiles[currentIndex].designation}</h3>
+            <h3>{profiles[currentIndex].edu}</h3>
+          </div>
+        </div>
+          <div onClick={handleNext}><svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.1094 7.49979C15.1094 6.09334 14.6923 4.71848 13.9109 3.54906C13.1296 2.37965 12.019 1.4682 10.7196 0.929976C9.42018 0.391753 7.99038 0.250929 6.61096 0.525313C5.23153 0.799697 3.96446 1.47696 2.96995 2.47147C1.97544 3.46598 1.29817 4.73306 1.02379 6.11248C0.749407 7.4919 0.890231 8.9217 1.42845 10.2211C1.96668 11.5205 2.87813 12.6311 4.04754 13.4125C5.21696 14.1938 6.59182 14.6109 7.99826 14.6109C9.88425 14.6109 11.693 13.8617 13.0266 12.5281C14.3602 11.1945 15.1094 9.38577 15.1094 7.49979ZM8.18938 11.0553C8.07319 10.9366 8.00813 10.777 8.00813 10.6109C8.00813 10.4448 8.07319 10.2852 8.18938 10.1665L10.2205 8.12201L3.93604 8.12201C3.77102 8.12201 3.61275 8.05645 3.49607 7.93976C3.37938 7.82307 3.31382 7.66481 3.31382 7.49979C3.31382 7.33476 3.37938 7.1765 3.49607 7.05981C3.61275 6.94312 3.77102 6.87756 3.93604 6.87756L10.1583 6.87756L8.18938 4.90868C8.0715 4.7908 8.00528 4.63093 8.00528 4.46423C8.00528 4.29753 8.0715 4.13766 8.18938 4.01979C8.30725 3.90191 8.46712 3.83569 8.63382 3.83569C8.80052 3.83569 8.96039 3.90191 9.07826 4.01979L12.576 7.53534L9.06938 11.0553C9.0116 11.1131 8.943 11.159 8.8675 11.1902C8.79201 11.2215 8.71109 11.2376 8.62938 11.2376C8.54766 11.2376 8.46674 11.2215 8.39125 11.1902C8.31575 11.159 8.24716 11.1131 8.18938 11.0553Z" fill="#C3C3C3"/>
+</svg>
+</div>
+      </div>
+
+
+
+  <div className="app deapshow">
+       {profiles.map((profile, index) => (
+             <div key={index} className="profile-card" style={{ backgroundImage: `url(${profile.image})` }}>
+                
+                 <div className="profile-card-content">
                     
                     <h2>{profile.name}</h2>
-                    <h3>{profile.designation}</h3>
-                    <h3>{profile.edu}</h3>
+                   <h3>{profile.designation}</h3>
+                                        <h3>{profile.edu}</h3>
                     <p className='thetext'>{profile.description}</p>
                 </div>
                 <div className='thebackcolor'>
@@ -140,6 +204,8 @@ const App = () => (
             </div>
         ))}
     </div>
-);
-
-export default App
+</>
+    );
+  };
+  
+  export default App;

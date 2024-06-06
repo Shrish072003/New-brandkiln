@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 const ScrollPlayVideo = ({ videoUrl, width = '-webkit-fill-available', height = '650' }) => {
   const videoContainerRef = useRef(null);
   const playerRef = useRef(null);
+  const hasPlayedOnceRef = useRef(false);
 
   useEffect(() => {
     const onPlayerReady = (event) => {
@@ -10,6 +11,8 @@ const ScrollPlayVideo = ({ videoUrl, width = '-webkit-fill-available', height = 
         const savedTime = sessionStorage.getItem(videoUrl) || 0;
         event.target.seekTo(parseFloat(savedTime));
         playerRef.current = event.target;
+        // Pause the video initially
+        event.target.pauseVideo();
       } catch (error) {
         console.error('Error during onPlayerReady:', error);
       }
@@ -77,7 +80,10 @@ const ScrollPlayVideo = ({ videoUrl, width = '-webkit-fill-available', height = 
         entries.forEach(entry => {
           if (playerRef.current && typeof playerRef.current.playVideo === 'function') {
             if (entry.isIntersecting) {
-              playerRef.current.playVideo();
+              if (!hasPlayedOnceRef.current) {
+                playerRef.current.playVideo();
+                hasPlayedOnceRef.current = true;
+              }
             } else {
               playerRef.current.pauseVideo();
             }
@@ -93,6 +99,14 @@ const ScrollPlayVideo = ({ videoUrl, width = '-webkit-fill-available', height = 
       observer.observe(videoContainerRef.current);
     }
 
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        sessionStorage.removeItem(videoUrl);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     return () => {
       if (observer && videoContainerRef.current) {
         observer.unobserve(videoContainerRef.current);
@@ -101,6 +115,7 @@ const ScrollPlayVideo = ({ videoUrl, width = '-webkit-fill-available', height = 
         playerRef.current.destroy(); // Properly destroy the player
         playerRef.current = null; // Ensure player reference is cleared
       }
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
   }, [videoUrl, width, height]);
 
