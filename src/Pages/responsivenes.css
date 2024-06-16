@@ -30,9 +30,10 @@
   }
 
   .hero-section {
-    height: 50vh;
+    height: 100vh;
     padding-top: 80px;
     width: 200%;
+    flex-direction: column;
 
   }
 
@@ -53,6 +54,20 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    align-items: center;
+    justify-content: center;
+    /* padding-bottom: 20px; */
+  }
+  .dfgdfgf{
+    justify-content: center;
+    /* padding-top: 20px; */
+    align-items: center;
+
+
+
+  }
+  .undermaindiv{
+    align-items: center !important;
   }
 
   .Flyout {
@@ -624,6 +639,7 @@ width: 100%;
 
 .visdesk {
   display: none;
+
 }
 
 .visdesk2 {

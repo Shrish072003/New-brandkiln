@@ -78,7 +78,7 @@ const MainSection = () => {
 
 
     <section className='d-flex hero-section visdesk'>
-      {isFirstImage ? (
+    
         <div
           className='w-50 hero-image hero-image1'
           style={{
@@ -94,13 +94,13 @@ const MainSection = () => {
             <Link to='/brand-strategy' className='buoton'>MORE</Link>
           </div>
         </div>
-      ) : (
+      
         <div
           className='w-50 hero-image hero-image1 dfgdfgf'
           style={{
             backgroundImage: `url(${imgTwo})`,
             backgroundPosition: '-70px',
-            alignItems: 'flex-start'
+            alignItems: 'center'
           }}
           onClick={toggleImage}
         >
@@ -110,8 +110,8 @@ const MainSection = () => {
             <div className='undermain'>We Code Excellence</div>
             <Link to='/metaverse' className='buoton'>MORE</Link>
           </div>
-        </div>
-      )}
+      </div>
+      
     </section>
   </>
   );
