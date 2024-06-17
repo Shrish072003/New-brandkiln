@@ -84,6 +84,8 @@ const MainSection = () => {
           style={{
             backgroundImage: `url(${imgOne})`,
             backgroundPosition: 'right',
+            justifyContent: 'end',
+            paddingBottom: '20px',
           }}
           onClick={toggleImage}
         >
@@ -104,8 +106,9 @@ const MainSection = () => {
           }}
           onClick={toggleImage}
         >
+                    <section className='studio'>TECH</section>
+
          <span className='dfgfgdf'>KILN</span> 
-          <section className='studio'>TECH</section>
           <div className='undermaindiv'  style={{ alignItems: 'start' }}>
             <div className='undermain'>We Code Excellence</div>
             <Link to='/metaverse' className='buoton'>MORE</Link>

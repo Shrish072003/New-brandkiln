@@ -54,21 +54,21 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    align-items: center;
+    align-items: end;
     justify-content: center;
     /* padding-bottom: 20px; */
   }
   .dfgdfgf{
     justify-content: center;
     /* padding-top: 20px; */
-    align-items: center;
+    align-items: start !important;
 
 
 
   }
-  .undermaindiv{
+  /* .undermaindiv{
     align-items: center !important;
-  }
+  } */
 
   .Flyout {
     position: absolute;
@@ -384,6 +384,7 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    text-shadow: none;
   }
 
   .dfgdfgf {
@@ -433,7 +434,7 @@
   }
 
   .backgroundimagedf {
-    height: 100vh;
+    height: 100%;
     background-size: cover;
   }
 
