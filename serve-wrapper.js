@@ -1,5 +1,2 @@
-(async () => {
-    const serve = (await import('serve')).default;
-    serve('build', { port: 3000 });
-  })();
-  
+const serve = require('serve');
+serve('build', { port: 3000 });
