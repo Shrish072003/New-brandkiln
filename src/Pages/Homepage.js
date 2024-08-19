@@ -1,30 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Helmet } from 'react-helmet';
 import Mainsection from '../Component/mainsection';
 import People from '../Component/Peoplesection';
 import Particale from '../Component/Particale.js';
 import Header from '../Component/header';
 import Preloader from '../Component/Preloader.js'; 
-import CaseStudyMobil from '../Component/CaseStudyMobil.js'
+import CaseStudyMobil from '../Component/CaseStudyMobil.js';
 import './main.css';
 import './responsivenes.css';
 
-
 const Homepage = () => {
   const [currentSection, setCurrentSection] = useState(0);
-  const [isLoading, setIsLoading] = useState(true); // State to manage loading status
-  const sectionRefs = useRef([React.createRef(),React.createRef(), React.createRef(), React.createRef()]);
+  const [isLoading, setIsLoading] = useState(true);
+  const sectionRefs = useRef([React.createRef(), React.createRef(), React.createRef(), React.createRef()]);
 
   useEffect(() => {
-    // Simulate loading delay with setTimeout (you can replace this with actual data fetching)
     const timeout = setTimeout(() => {
-      setIsLoading(false); // Once loaded, set isLoading to false
-    }, 20); // Adjust the timeout as needed
+      setIsLoading(false);
+    }, 20);
 
-    return () => clearTimeout(timeout); // Cleanup timeout on unmount
+    return () => clearTimeout(timeout);
   }, []);
 
   useEffect(() => {
-    // Your scroll and key press event listeners remain the same
     const handleScroll = (event) => {
       // Scroll logic
     };
@@ -39,7 +37,6 @@ const Homepage = () => {
     window.addEventListener('keydown', handleKeyPress, { passive: false });
 
     return () => {
-      // Cleanup event listeners
       window.removeEventListener('wheel', handleScroll);
       window.removeEventListener('DOMMouseScroll', handleScroll);
       window.removeEventListener('mousewheel', handleScroll);
@@ -49,8 +46,15 @@ const Homepage = () => {
 
   return (
     <div className='main-bodyfront'>
+      <Helmet>
+        <title>Brand Kiln | Creative Brand Management Solutions | Complete Technology Development Solutions</title>
+        <meta
+          name="description"
+          content="Brand Kiln delivers end-to-end tech development along with brand strategy. We elevate your brand with data-powered storytelling and web 3.0 strategies."
+        />
+      </Helmet>
       {isLoading ? (
-        <Preloader /> // Render the Preloader component while loading
+        <Preloader />
       ) : (
         <>
           <div ref={sectionRefs.current[0]}>
@@ -60,10 +64,10 @@ const Homepage = () => {
           <div ref={sectionRefs.current[1]}>
             <People />
           </div>
-          <div ref={sectionRefs.current[2]}  className="particale-section">
+          <div ref={sectionRefs.current[2]} className="particale-section">
             <Particale />
           </div>
-          <div ref={sectionRefs.current[3]}  className="particale-sectionm">
+          <div ref={sectionRefs.current[3]} className="particale-sectionm">
             <CaseStudyMobil />
           </div>
         </>
