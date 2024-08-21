@@ -1114,11 +1114,15 @@ text-align: left;
 }
 
 .filter-label {
-  margin-right: 10px;
+  /* margin-right: 10px; */
+  /* margin-top: 7px; */
   text-align: center;
   justify-content: center;
   align-items: center;
   display: flex;
+}
+.h-9{
+  height: 100px;
 }
 
 .bollone {
@@ -1138,6 +1142,9 @@ text-align: left;
   /* Highlight the active button */
 }
 
+.hchdfc ion-icon {
+  font-size: 1.7rem;
+}
 
 
 

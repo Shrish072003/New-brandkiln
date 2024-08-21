@@ -24,6 +24,10 @@ const Faqs = () => {
         setAccordionOpen1(false);
         setAccordionOpen2(false);
         setAccordionOpen3(false);
+        window.scrollTo({
+            top: document.body.scrollHeight * 0.2,
+            behavior: 'smooth' // smooth scroll effect
+        });
     };
 
     const toggleAccordion1 = () => {
@@ -31,6 +35,10 @@ const Faqs = () => {
         setAccordionOpen1(!accordionOpen1);
         setAccordionOpen2(false);
         setAccordionOpen3(false);
+        window.scrollTo({
+            top: document.body.scrollHeight * 0.1,
+            behavior: 'smooth' // smooth scroll effect
+        });
     };
 
     const toggleAccordion2 = () => {
@@ -38,12 +46,20 @@ const Faqs = () => {
         setAccordionOpen1(false);
         setAccordionOpen2(!accordionOpen2);
         setAccordionOpen3(false);
+        window.scrollTo({
+            top: document.body.scrollHeight * 0.13,
+            behavior: 'smooth' // smooth scroll effect
+        });
     };
     const toggleAccordion3 = () => {
         setAccordionOpen(false);
         setAccordionOpen1(false);
         setAccordionOpen2(false);
         setAccordionOpen3(!accordionOpen3);
+        window.scrollTo({
+            top: document.body.scrollHeight * 0.15,
+            behavior: 'smooth' // smooth scroll effect
+        });
     };
 
 
@@ -153,7 +169,7 @@ const Faqs = () => {
                                                             <div className="dark-gray">Interests</div>
                                                         </div>
                                                         <div className="right-column">
-                                                            <div className="light-gray">Ongoing Ph.D. in Metaverse</div>
+                                                          We code Excellence  <div className="light-gray">Ongoing Ph.D. in Metaverse</div>
                                                             <div className="light-gray">Mercedes Benz Dow Chemical Global Retail</div>
                                                             <div className="light-gray">Limca Record for 18 country motorbike trip</div>
                                                             <div className="light-gray"> Music Reading Philosophy</div>
@@ -288,7 +304,7 @@ const Faqs = () => {
 
                                         </div>
                                         <div className='underfssbd fghfghfghfghfg'>
-                                            <Link to="/http://64.23.229.196:3000/apps-and-platform-development" className="text-decoration-none">
+                                            <Link to="/apps-and-platform-development" className="text-decoration-none">
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22ZM20.0606 13.0607C20.3419 12.7794 20.4999 12.3978 20.4999 12C20.4999 11.6022 20.3419 11.2206 20.0606 10.9393L14.0606 4.93934C13.4748 4.35355 12.5251 4.35355 11.9393 4.93934C11.3535 5.52513 11.3535 6.47487 11.9393 7.06066L15.3786 10.5L4.99994 10.5C4.17151 10.5 3.49994 11.1716 3.49994 12C3.49994 12.8284 4.17151 13.5 4.99994 13.5L15.3786 13.5L11.9393 16.9393C11.3535 17.5251 11.3535 18.4749 11.9393 19.0607C12.5251 19.6464 13.4748 19.6464 14.0606 19.0607L20.0606 13.0607Z" fill="#2638d9 " />
                                                 </svg>Apps & Platform Dev

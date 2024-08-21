@@ -272,13 +272,17 @@ body {
 
 .gkhlkfghfg{
   color: #fff;
-  padding-left: 10px;
+  margin-right: 25px;
 }
 .hchdfc {
   font-size: 25px;
   cursor: pointer;
 }
-
+@media (min-width: 1024px) {
+  .deskdid {
+    display: none;
+  }
+}
 /* .about-faq-section {
   padding: 0px 0px 0px 25%;
 } */
@@ -804,7 +808,7 @@ a {
 
 .fdgjdkfgkhdbgd {
   background: #000;
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 .particle {

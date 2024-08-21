@@ -661,6 +661,492 @@
 // export default Particle;
 
 
+// import React, { useEffect, useRef, useState } from 'react';
+// import imgBk from '../Images/bklogo.png';
+// import Footer from './footer.js';
+// import './particles.scss';
+// import ParticleData from './particle.json';
+// import { ImCross } from "react-icons/im";
+// import { Link } from 'react-router-dom';
+// import { FaCaretRight } from "react-icons/fa6";
+
+// const Particle = () => {
+//   const containerRef = useRef(null);
+//   const canvasRef = useRef(null);
+//   const [popupContent, setPopupContent] = useState([]);
+//   const [popupPosition, setPopupPosition] = useState([]);
+//   const [pausedParticleIndex, setPausedParticleIndex] = useState([]);
+//   const [popupBackgroundColor, setPopupBackgroundColor] = useState([]);
+//   const [selectedFilter, setSelectedFilter] = useState('All');
+//   const [activeParticleTimeout, setActiveParticleTimeout] = useState(null);
+//   const [isManualOpen, setIsManualOpen] = useState(false);
+
+//   useEffect(() => {
+//     const canvas = canvasRef.current;
+//     const ctx = canvas.getContext('2d');
+//     const particles = containerRef.current.getElementsByClassName('particle');
+
+//     const updateCanvas = () => {
+//       canvas.width = window.innerWidth;
+//       canvas.height = window.innerHeight * 0.5; 
+//       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+//       // const positions = [];
+//       // for (let particle of particles) {
+//       //   const rect = particle.getBoundingClientRect();
+//       //   positions.push({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
+//       // }
+
+//       // positions.forEach((pos, index) => {
+//       //   let distances = positions.map((p, i) => ({
+//       //     index: i,
+//       //     distance: Math.sqrt((p.x - pos.x) ** 2 + (p.y - pos.y) ** 2)
+//       //   })).filter(p => p.index !== index);
+
+//       //   distances.sort((a, b) => a.distance - b.distance);
+//       //   distances.filter(d => d.distance <= 140).slice(0, 3).forEach(d => {
+//       //     ctx.beginPath();
+//       //     ctx.moveTo(pos.x, pos.y);
+//       //     ctx.lineTo(positions[d.index].x, positions[d.index].y);
+//       //     ctx.strokeStyle = 'rgba(255, 255, 255, ' + (1 - d.distance / 200) + ')';
+//       //     ctx.stroke();
+//       //   });
+//       // });
+
+//       requestAnimationFrame(updateCanvas);
+//     };
+
+//     updateCanvas();
+
+//     function handleResize() {
+//       canvas.width = window.innerWidth;
+//       canvas.height = window.innerHeight * 0.5; 
+//       updateCanvas();
+//     }
+
+//     window.addEventListener('resize', handleResize);
+//     return () => window.removeEventListener('resize', handleResize);
+//   }, []);
+
+//   const handleParticleClick = (image, headline, text, link, index, event) => {
+//     setPopupContent(prev => [...prev, { image, headline, text, link }]);
+//     setPausedParticleIndex(prev => [...prev, index]);
+//     const particles = containerRef.current.getElementsByClassName('particle');
+//     particles[index].style.animationPlayState = 'paused';
+
+//     const backgroundColor = window.getComputedStyle(particles[index]).backgroundColor;
+//     setPopupBackgroundColor(prev => [...prev, backgroundColor]);
+
+//     const rect = event.target.getBoundingClientRect();
+//     setPopupPosition(prev => [...prev, { x: rect.left + window.scrollX, y: rect.top + window.scrollY }]);
+
+//     particles[index].style.width = '40px';
+//     particles[index].style.height = '40px';
+//     setIsManualOpen(true);
+//   };
+
+//   const handleClosePopup = () => {
+//     const particles = containerRef.current.getElementsByClassName('particle');
+//     for (let i = 0; i < particles.length; i++) {
+//       particles[i].style.animationPlayState = 'running';
+//       const style = getParticleStyle(i);
+//       particles[i].style.width = style.width;
+//       particles[i].style.height = style.height;
+//     }
+
+//     setPopupContent([]);
+//     setPausedParticleIndex([]);
+//     setPopupBackgroundColor([]);
+//     setPopupPosition([]);
+//     setIsManualOpen(false);
+//   };
+
+//   const getParticleStyle = (index) => {
+//     const sizeClass = index % 15 === 0 ? 'large' : index % 5 === 0 ? 'medium' : 'small';
+//     let size;
+//     let boxShadow;
+
+//     if (sizeClass === 'large') {
+//       size = { width: '40px', height: '40px' };
+//       boxShadow = '0 4px 8px rgba(0, 0, 0, 0.3)';
+//     } else if (sizeClass === 'medium') {
+//       size = { width: '30px', height: '30px' };
+//       boxShadow = '0 3px 6px rgba(0, 0, 0, 0.2)';
+//     } else {
+//       size = { width: '20px', height: '20px' };
+//       boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+//     }
+
+//     return { ...size, boxShadow };
+//   };
+
+//   const handleFilterChange = (filter) => {
+//     handleClosePopup();
+//     setSelectedFilter(filter);
+//   };
+
+//   const filteredParticles = ParticleData.filter(data => {
+//     if (selectedFilter === 'All') {
+//       return true;
+//     } else {
+//       return data.tag === selectedFilter;
+//     }
+//   });
+
+//   useEffect(() => {
+//     const openRandomParticles = () => {
+//       if (isManualOpen) return;
+
+//       const numParticlesToOpen = Math.floor(Math.random() * 3) + 1;
+//       const randomIndices = [];
+//       while (randomIndices.length < numParticlesToOpen) {
+//         const randomIndex = Math.floor(Math.random() * filteredParticles.length);
+//         if (!randomIndices.includes(randomIndex)) {
+//           randomIndices.push(randomIndex);
+//         }
+//       }
+
+//       const particles = containerRef.current.getElementsByClassName('particle');
+//       randomIndices.forEach(randomIndex => {
+//         const event = new Event('click');
+//         particles[randomIndex].dispatchEvent(event);
+//         const particleData = filteredParticles[randomIndex];
+
+//         handleParticleClick(
+//           particleData.image,
+//           particleData.headline,
+//           particleData.text,
+//           particleData.link,
+//           randomIndex,
+//           { target: particles[randomIndex] }
+//         );
+//       });
+
+//       const timeout = setTimeout(() => {
+//         handleClosePopup();
+//       }, 3000);
+
+//       setActiveParticleTimeout(timeout);
+//     };
+
+//     const interval = setInterval(openRandomParticles, 6000);
+//     return () => {
+//       clearInterval(interval);
+//       if (activeParticleTimeout) {
+//         clearTimeout(activeParticleTimeout);
+//       }
+//     };
+//   }, [filteredParticles, isManualOpen]);
+
+//   const gradientBackground = (bgColor) => bgColor
+//     ? `linear-gradient(to top, ${bgColor}, ${bgColor})`
+//     : '';
+
+//   return (
+//     <>
+//       <div className='d-flex position-absolute justify-content-between w-100 align-items-center fgdfkgldkfg'>
+//         <div className='d-flex maintosecteion dghkgjkf'>
+//           <img src={imgBk} alt="Logo" />
+//           <div className='bklogotext'>invites you to explore..</div>
+//         </div>
+//         <div className='d-flex gap-2 gkhlkfghfg'>
+//           <button className={`boll ${selectedFilter === 'All' ? 'active' : ''}`} onClick={() => handleFilterChange('All')}></button>
+//           {selectedFilter === 'All' && <span className='filter-label filter-text'>All</span>}
+//           <button className={`boll bollone ${selectedFilter === 'Strategy' ? 'active' : ''}`} onClick={() => handleFilterChange('Strategy')}></button>
+//           {selectedFilter === 'Strategy' && <span className='filter-label filter-text'>Strategy</span>}
+//           <button className={`boll bolltwo ${selectedFilter === 'Tech' ? 'active' : ''}`} onClick={() => handleFilterChange('Tech')}></button>
+//           {selectedFilter === 'Tech' && <span className='filter-label filter-text'>Tech</span>}
+//           <button className={`boll bollthree ${selectedFilter === 'Brand' ? 'active' : ''}`} onClick={() => handleFilterChange('Brand')}></button>
+//           {selectedFilter === 'Brand' && <span className='filter-label filter-text'>Brand</span>}
+//         </div>
+//       </div>
+//       <div ref={containerRef} id="particle-container" className='fdgjdkfgkhdbgd fryincenter'>
+//         <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, width: '100%',
+//             height: '50vh' }} className='fdgjdkfgkhdbgd' />
+//         {filteredParticles.map((data, index) => {
+//           const style = getParticleStyle(index);
+//           const color = data.tag === 'Tech' ? '#2C55ED' :
+//                         data.tag === 'Strategy' ? '#B3D658' :
+//                         '#E0076A';
+//           return (
+//             <div
+//               className="particle"
+//               key={index}
+//               style={{ top: `auto`,marginTop: '25vh', backgroundColor: color, ...style }}
+//               onClick={(event) => handleParticleClick(data.image, data.headline, data.text, data.link, index, event)}
+//             ></div>
+//           );
+//         })}
+//         {popupContent.map((content, idx) => (
+//           <div
+//             key={idx}
+//             className="ghfghfghfg"
+//             style={{
+//               top: popupPosition[idx]?.y || 0,
+//               left: popupPosition[idx]?.x || 0,
+//               '--popup-bg-color': popupBackgroundColor[idx],
+//               background: gradientBackground(popupBackgroundColor[idx])
+//             }}
+//           >
+//             <div className='sddmmdfsds'>
+//               <div className='d-flex gap-2 align-items-center'>
+//                 <img src={content.image} className='imageofpop' crossOrigin='anonymous' alt="Particle Detail"/>
+//                 <h2 className='hedlineofpop'>{content.headline}</h2>
+//               </div>
+//               <p className='dfgf'>{content.text}</p>
+//               <Link className='mainlinkonpopup' to={content.link}>Read more <FaCaretRight /></Link>
+//             </div>
+//             <div className="close-buttonfhbf" onClick={handleClosePopup}><ImCross /></div>
+//           </div>
+//         ))}
+//         <Footer />
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Particle;
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useEffect, useRef, useState } from 'react';
+// import imgBk from '../Images/bklogo.png';
+// import Footer from './footer.js';
+// import './particles.scss';
+// import ParticleData from './particle.json';
+// import { ImCross } from "react-icons/im";
+// import { Link } from 'react-router-dom';
+// import { FaCaretRight } from "react-icons/fa6";
+
+// const Particle = () => {
+//   const containerRef = useRef(null);
+//   const canvasRef = useRef(null);
+//   const [popupContent, setPopupContent] = useState([]);
+//   const [popupPosition, setPopupPosition] = useState([]);
+//   const [pausedParticleIndex, setPausedParticleIndex] = useState([]);
+//   const [popupBackgroundColor, setPopupBackgroundColor] = useState([]);
+//   const [selectedFilter, setSelectedFilter] = useState('All');
+//   const [activeParticleTimeout, setActiveParticleTimeout] = useState(null);
+//   const [isManualOpen, setIsManualOpen] = useState(false);
+
+//   useEffect(() => {
+//     const canvas = canvasRef.current;
+//     const ctx = canvas.getContext('2d');
+//     const particles = containerRef.current.getElementsByClassName('particle');
+
+//     const updateCanvas = () => {
+//       canvas.width = window.innerWidth;
+//       canvas.height = window.innerHeight * 0.5; 
+//       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+//       requestAnimationFrame(updateCanvas);
+//     };
+
+//     updateCanvas();
+
+//     function handleResize() {
+//       canvas.width = window.innerWidth;
+//       canvas.height = window.innerHeight * 0.5; 
+//       updateCanvas();
+//     }
+
+//     window.addEventListener('resize', handleResize);
+//     return () => window.removeEventListener('resize', handleResize);
+//   }, []);
+
+//   const handleParticleClick = (image, headline, text, link, index, event) => {
+//     setPopupContent(prev => [...prev, { image, headline, text, link }]);
+//     setPausedParticleIndex(prev => [...prev, index]);
+//     const particles = containerRef.current.getElementsByClassName('particle');
+//     particles[index].style.animationPlayState = 'paused';
+
+//     const backgroundColor = window.getComputedStyle(particles[index]).backgroundColor;
+//     setPopupBackgroundColor(prev => [...prev, backgroundColor]);
+
+//     const rect = event.target.getBoundingClientRect();
+//     setPopupPosition(prev => [...prev, { x: rect.left + window.scrollX, y: rect.top + window.scrollY }]);
+
+//     particles[index].style.width = '40px';
+//     particles[index].style.height = '40px';
+//     setIsManualOpen(true);
+//   };
+
+//   const handleClosePopup = () => {
+//     const particles = containerRef.current.getElementsByClassName('particle');
+//     for (let i = 0; i < particles.length; i++) {
+//       particles[i].style.animationPlayState = 'running';
+//       const style = getParticleStyle(i);
+//       particles[i].style.width = style.width;
+//       particles[i].style.height = style.height;
+//     }
+
+//     setPopupContent([]);
+//     setPausedParticleIndex([]);
+//     setPopupBackgroundColor([]);
+//     setPopupPosition([]);
+//     setIsManualOpen(false);
+//   };
+
+//   const getParticleStyle = (index) => {
+//     const sizeClass = index % 15 === 0 ? 'large' : index % 5 === 0 ? 'medium' : 'small';
+//     let size;
+//     let boxShadow;
+
+//     if (sizeClass === 'large') {
+//       size = { width: '40px', height: '40px' };
+//       boxShadow = '0 4px 8px rgba(0, 0, 0, 0.3)';
+//     } else if (sizeClass === 'medium') {
+//       size = { width: '30px', height: '30px' };
+//       boxShadow = '0 3px 6px rgba(0, 0, 0, 0.2)';
+//     } else {
+//       size = { width: '20px', height: '20px' };
+//       boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+//     }
+
+//     return { ...size, boxShadow };
+//   };
+
+//   const gradientBackground = (color) => {
+//     // This example generates a linear gradient from the specified color
+//     return `linear-gradient(45deg, ${color} 0%, rgba(255, 255, 255, 0.5) 150%)`;
+//   };
+
+//   const handleFilterChange = (filter) => {
+//     handleClosePopup();
+//     setSelectedFilter(filter);
+//   };
+
+//   const filteredParticles = ParticleData.filter(data => {
+//     if (selectedFilter === 'All') {
+//       return true;
+//     } else {
+//       return data.tag === selectedFilter;
+//     }
+//   });
+
+//   useEffect(() => {
+//     const openSpecificParticles = () => {
+//       if (isManualOpen) return;
+
+//       const specificHeadlines = ["Nirdhwani Technologies", "Supreme Petrochem", ""];
+//       const specificParticles = filteredParticles.filter(particle => 
+//         specificHeadlines.includes(particle.headline)
+//       );
+
+//       const particles = containerRef.current.getElementsByClassName('particle');
+//       specificParticles.forEach((particleData, index) => {
+//         const randomIndex = filteredParticles.indexOf(particleData);
+//         if (randomIndex !== -1) {
+//           const event = new Event('click');
+//           particles[randomIndex].dispatchEvent(event);
+
+//           handleParticleClick(
+//             particleData.image,
+//             particleData.headline,
+//             particleData.text,
+//             particleData.link,
+//             randomIndex,
+//             { target: particles[randomIndex] }
+//           );
+//         }
+//       });
+
+//       const timeout = setTimeout(() => {
+//         handleClosePopup();
+//       }, 3000);
+
+//       setActiveParticleTimeout(timeout);
+//     };
+
+//     openSpecificParticles();
+
+//     return () => {
+//       if (activeParticleTimeout) {
+//         clearTimeout(activeParticleTimeout);
+//       }
+//     };
+//   }, [filteredParticles, isManualOpen]);
+
+//   return (
+//     <>
+//       <div className='d-flex position-absolute justify-content-between w-100 align-items-center fgdfkgldkfg'>
+//         <div className='d-flex maintosecteion dghkgjkf'>
+//           <img src={imgBk} alt="Logo" />
+//           <div className='bklogotext'>invites you to explore..</div>
+//         </div>
+//         <div className='d-flex gap-2 gkhlkfghfg'>
+//   <button className={`boll ${selectedFilter === 'All' ? 'active' : ''}`} onClick={() => handleFilterChange('All')}></button>
+//   {selectedFilter === 'All' && <span className='filter-label filter-text'>All</span>}
+
+//   <button className={`boll bollone ${selectedFilter === 'Strategy' ? 'active' : ''}`} onClick={() => handleFilterChange('Strategy')}></button>
+//   {selectedFilter === 'Strategy' && <span className='filter-label filter-text'>Strategy</span>}
+
+//   <button className={`boll bolltwo ${selectedFilter === 'Tech' ? 'active' : ''}`} onClick={() => handleFilterChange('Tech')}></button>
+//   {selectedFilter === 'Tech' && <span className='filter-label filter-text'>Tech</span>}
+
+//   <button className={`boll bollthree ${selectedFilter === 'Brand' ? 'active' : ''}`} onClick={() => handleFilterChange('Brand')}></button>
+//   {selectedFilter === 'Brand' && <span className='filter-label filter-text'>Brand</span>}
+// </div>
+
+//       </div>
+//       <div ref={containerRef} id="particle-container" className='fdgjdkfgkhdbgd fryincenter'>
+//         <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, width: '100%', height: '50vh' }} className='fdgjdkfgkhdbgd' />
+//         {filteredParticles.map((data, index) => {
+//           const style = getParticleStyle(index);
+//           const color = data.tag === 'Tech' ? '#2C55ED' :
+//                         data.tag === 'Strategy' ? '#B3D658' :
+//                         '#E0076A';
+//           return (
+//             <div
+//               className="particle"
+//               key={index}
+//               style={{ top: 'auto', marginTop: '25vh', marginLeft: '15vh',marginRight: '15vh',backgroundColor: color, ...style }}
+//               onClick={(event) => handleParticleClick(data.image, data.headline, data.text, data.link, index, event)}
+//             ></div>
+//           );
+//         })}
+//         {popupContent.map((content, idx) => (
+//           <div
+//             key={idx}
+//             className="ghfghfghfg"
+//             style={{
+//               top: popupPosition[idx]?.y || 0,
+//               left: popupPosition[idx]?.x || 0,
+//               '--popup-bg-color': popupBackgroundColor[idx],
+//               background: gradientBackground(popupBackgroundColor[idx])
+//             }}
+//           >
+//             <div className='sddmmdfsds'>
+//               <div className='d-flex gap-2 align-items-center'>
+//                 <img src={content.image} className='imageofpop' crossOrigin='anonymous' alt="Particle Detail"/>
+//                 <h2 className='hedlineofpop'>{content.headline}</h2>
+//               </div>
+//               <p className='dfgf'>{content.text}</p>
+//               <Link className='mainlinkonpopup' to={content.link}>Read more <FaCaretRight /></Link>
+//             </div>
+//             <div className="close-buttonfhbf" onClick={handleClosePopup}><ImCross /></div>
+//           </div>
+//         ))}
+//         <Footer />
+//       </div>
+//     </>
+//   );
+// };
+
+// export default Particle;
+
+
+
+
 import React, { useEffect, useRef, useState } from 'react';
 import imgBk from '../Images/bklogo.png';
 import Footer from './footer.js';
@@ -684,35 +1170,11 @@ const Particle = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
-    const particles = containerRef.current.getElementsByClassName('particle');
 
     const updateCanvas = () => {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
+      canvas.height = window.innerHeight * 0.5;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const positions = [];
-      for (let particle of particles) {
-        const rect = particle.getBoundingClientRect();
-        positions.push({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
-      }
-
-      positions.forEach((pos, index) => {
-        let distances = positions.map((p, i) => ({
-          index: i,
-          distance: Math.sqrt((p.x - pos.x) ** 2 + (p.y - pos.y) ** 2)
-        })).filter(p => p.index !== index);
-
-        distances.sort((a, b) => a.distance - b.distance);
-        distances.filter(d => d.distance <= 140).slice(0, 3).forEach(d => {
-          ctx.beginPath();
-          ctx.moveTo(pos.x, pos.y);
-          ctx.lineTo(positions[d.index].x, positions[d.index].y);
-          ctx.strokeStyle = 'rgba(255, 255, 255, ' + (1 - d.distance / 200) + ')';
-          ctx.stroke();
-        });
-      });
 
       requestAnimationFrame(updateCanvas);
     };
@@ -721,7 +1183,7 @@ const Particle = () => {
 
     function handleResize() {
       canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.height = window.innerHeight * 0.5;
       updateCanvas();
     }
 
@@ -730,16 +1192,18 @@ const Particle = () => {
   }, []);
 
   const handleParticleClick = (image, headline, text, link, index, event) => {
-    setPopupContent(prev => [...prev, { image, headline, text, link }]);
-    setPausedParticleIndex(prev => [...prev, index]);
+    handleClosePopup(); // Close any currently open particles
+
+    setPopupContent([{ image, headline, text, link }]);
+    setPausedParticleIndex([index]);
     const particles = containerRef.current.getElementsByClassName('particle');
     particles[index].style.animationPlayState = 'paused';
 
     const backgroundColor = window.getComputedStyle(particles[index]).backgroundColor;
-    setPopupBackgroundColor(prev => [...prev, backgroundColor]);
+    setPopupBackgroundColor([backgroundColor]);
 
     const rect = event.target.getBoundingClientRect();
-    setPopupPosition(prev => [...prev, { x: rect.left + window.scrollX, y: rect.top + window.scrollY }]);
+    setPopupPosition([{ x: rect.left + window.scrollX, y: rect.top + window.scrollY }]);
 
     particles[index].style.width = '40px';
     particles[index].style.height = '40px';
@@ -781,6 +1245,10 @@ const Particle = () => {
     return { ...size, boxShadow };
   };
 
+  const gradientBackground = (color) => {
+    return `linear-gradient(45deg, ${color} 0%, rgba(255, 255, 255, 0.5) 150%)`;
+  };
+
   const handleFilterChange = (filter) => {
     handleClosePopup();
     setSelectedFilter(filter);
@@ -795,53 +1263,43 @@ const Particle = () => {
   });
 
   useEffect(() => {
-    const openRandomParticles = () => {
-      if (isManualOpen) return;
+    const openSpecificParticles = () => {
+      if (isManualOpen || popupContent.length > 0) return; // If a particle is manually opened or already open, do nothing
 
-      const numParticlesToOpen = Math.floor(Math.random() * 3) + 1;
-      const randomIndices = [];
-      while (randomIndices.length < numParticlesToOpen) {
-        const randomIndex = Math.floor(Math.random() * filteredParticles.length);
-        if (!randomIndices.includes(randomIndex)) {
-          randomIndices.push(randomIndex);
-        }
-      }
+      const specificHeadlines = ["Nirdhwani Technologies", "Supreme Petrochem"];
+      const specificParticles = filteredParticles.filter(particle =>
+        specificHeadlines.includes(particle.headline)
+      );
 
       const particles = containerRef.current.getElementsByClassName('particle');
-      randomIndices.forEach(randomIndex => {
-        const event = new Event('click');
-        particles[randomIndex].dispatchEvent(event);
-        const particleData = filteredParticles[randomIndex];
+      specificParticles.forEach((particleData, index) => {
+        const randomIndex = filteredParticles.indexOf(particleData);
+        if (randomIndex !== 0) {
+          const event = new Event('click');
+          particles[randomIndex].dispatchEvent(event);
 
-        handleParticleClick(
-          particleData.image,
-          particleData.headline,
-          particleData.text,
-          particleData.link,
-          randomIndex,
-          { target: particles[randomIndex] }
-        );
+          handleParticleClick(
+            particleData.image,
+            particleData.headline,
+            particleData.text,
+            particleData.link,
+            randomIndex,
+            { target: particles[randomIndex] }
+          );
+        }
       });
 
-      const timeout = setTimeout(() => {
-        handleClosePopup();
-      }, 3000);
 
-      setActiveParticleTimeout(timeout);
     };
 
-    const interval = setInterval(openRandomParticles, 6000);
+    openSpecificParticles();
+
     return () => {
-      clearInterval(interval);
       if (activeParticleTimeout) {
         clearTimeout(activeParticleTimeout);
       }
     };
   }, [filteredParticles, isManualOpen]);
-
-  const gradientBackground = (bgColor) => bgColor
-    ? `linear-gradient(to top, ${bgColor}, ${bgColor})`
-    : '';
 
   return (
     <>
@@ -850,29 +1308,38 @@ const Particle = () => {
           <img src={imgBk} alt="Logo" />
           <div className='bklogotext'>invites you to explore..</div>
         </div>
-        <div className='d-flex gap-2 gkhlkfghfg'>
-          <button className={`boll ${selectedFilter === 'All' ? 'active' : ''}`} onClick={() => handleFilterChange('All')}></button>
-          {selectedFilter === 'All' && <span className='filter-label filter-text'>All</span>}
-          <button className={`boll bollone ${selectedFilter === 'Strategy' ? 'active' : ''}`} onClick={() => handleFilterChange('Strategy')}></button>
-          {selectedFilter === 'Strategy' && <span className='filter-label filter-text'>Strategy</span>}
-          <button className={`boll bolltwo ${selectedFilter === 'Tech' ? 'active' : ''}`} onClick={() => handleFilterChange('Tech')}></button>
-          {selectedFilter === 'Tech' && <span className='filter-label filter-text'>Tech</span>}
-          <button className={`boll bollthree ${selectedFilter === 'Brand' ? 'active' : ''}`} onClick={() => handleFilterChange('Brand')}></button>
-          {selectedFilter === 'Brand' && <span className='filter-label filter-text'>Brand</span>}
+        <div className='d-flex mt-3 pl-3  gap-4 gkhlkfghfg'>
+          <div className='d-flex flex-column h-9'>
+            <button className={`boll ${selectedFilter === 'All' ? 'active' : ''}`} onClick={() => handleFilterChange('All')}></button>
+            {selectedFilter === 'All' && <span className='filter-label filter-text'>All</span>}
+          </div>
+          <div className='d-flex flex-column h-9'>
+            <button className={`boll bollone ${selectedFilter === 'Strategy' ? 'active' : ''}`} onClick={() => handleFilterChange('Strategy')}></button>
+            {selectedFilter === 'Strategy' && <span className='filter-label filter-text'>Strategy</span>}
+          </div>
+          <div className='d-flex  flex-column  h-9'>
+            <button className={`boll bolltwo ${selectedFilter === 'Tech' ? 'active' : ''}`} onClick={() => handleFilterChange('Tech')}></button>
+            {selectedFilter === 'Tech' && <span className='filter-label filter-text'>Tech</span>}
+          </div>
+          <div className='d-flex  flex-column h-9'>
+            <button className={`boll bollthree ${selectedFilter === 'Brand' ? 'active' : ''}`} onClick={() => handleFilterChange('Brand')}></button>
+            {selectedFilter === 'Brand' && <span className='filter-label filter-text'>Brand</span>}
+          </div>
         </div>
+
       </div>
-      <div ref={containerRef} id="particle-container" className='fdgjdkfgkhdbgd'>
-        <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1 }} className='fdgjdkfgkhdbgd' />
+      <div ref={containerRef} id="particle-container" className='fdgjdkfgkhdbgd fryincenter'>
+        <canvas ref={canvasRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, width: '100%', height: '50vh' }} className='fdgjdkfgkhdbgd' />
         {filteredParticles.map((data, index) => {
           const style = getParticleStyle(index);
           const color = data.tag === 'Tech' ? '#2C55ED' :
-                        data.tag === 'Strategy' ? '#B3D658' :
-                        '#E0076A';
+            data.tag === 'Strategy' ? '#B3D658' :
+              '#E0076A';
           return (
             <div
               className="particle"
               key={index}
-              style={{ top: `auto`, backgroundColor: color, ...style }}
+              style={{ top: 'auto', marginTop: '25vh', marginLeft: '15vh', marginRight: '15vh', backgroundColor: color, ...style }}
               onClick={(event) => handleParticleClick(data.image, data.headline, data.text, data.link, index, event)}
             ></div>
           );
@@ -890,7 +1357,7 @@ const Particle = () => {
           >
             <div className='sddmmdfsds'>
               <div className='d-flex gap-2 align-items-center'>
-                <img src={content.image} className='imageofpop' crossOrigin='anonymous' alt="Particle Detail"/>
+                <img src={content.image} className='imageofpop' crossOrigin='anonymous' alt="Particle Detail" />
                 <h2 className='hedlineofpop'>{content.headline}</h2>
               </div>
               <p className='dfgf'>{content.text}</p>
@@ -906,7 +1373,4 @@ const Particle = () => {
 };
 
 export default Particle;
-
-
-
 

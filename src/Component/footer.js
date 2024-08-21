@@ -54,7 +54,7 @@ const Footer = () => {
         <a className='dfgdfgdf'>{address}</a>
       </div>
       <div className='hiden'>Copyright © 2024 Brand Kiln Pvt. Ltd</div>
-      <div className='vis'>© 2024 Brand Kiln Pvt. Ltd</div>
+      <div className='vis deskdid'>© 2024 Brand Kiln Pvt. Ltd</div>
     </div>
   );
 }

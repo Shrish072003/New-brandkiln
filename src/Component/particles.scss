@@ -101,7 +101,7 @@ $brand-color: #E0076A;
 @for $i from 1 through 60 {
   @keyframes particle-animation-#{$i} {
     100% {
-      transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+      transform: translate3d((random(90) * 0.9vw), (random(90) * 0.5vh), (random(100) * 0.5px));
     }
   }
 
@@ -112,7 +112,7 @@ $brand-color: #E0076A;
     height: $size;
     width: $size;
     animation-delay: -$i * 0.7s;
-    transform: translate3d((random(90) * 1vw), (random(90) * 1vh), (random(100) * 1px));
+    transform: translate3d((random(90) * 0.9vw), (random(90) * 0.5vh), (random(100) * 0.5px));
     transition: transform 0.3s ease; // Add transition for smooth animation
     cursor: pointer; // Change cursor to pointer when hovering
 
@@ -144,4 +144,10 @@ $brand-color: #E0076A;
   box-shadow: 
     0 4px 10px rgba(0, 0, 0, 0.3), // Outer shadow for depth
     inset 0 -4px 10px rgba(0, 0, 0, 0.2); // Inner shadow for 3D effect
+}
+.fryincenter{
+  // height: 50vh;
+  // display: flex;
+  align-items: center;
+  justify-content: center;
 }
