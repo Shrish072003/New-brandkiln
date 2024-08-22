@@ -1199,7 +1199,7 @@ const Particle = () => {
     setPopupContent(prev => [...prev, { image, headline, text, link }]);
     setPausedParticleIndex(prev => [...prev, index]);
     const particles = containerRef.current.getElementsByClassName('particle');
-    particles[index].style.animationPlayState = 'paused';
+    particles[index].style.animationPlayState = '';
 
     const backgroundColor = window.getComputedStyle(particles[index]).backgroundColor;
     setPopupBackgroundColor(prev => [...prev, backgroundColor]);

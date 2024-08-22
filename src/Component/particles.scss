@@ -101,7 +101,7 @@ $brand-color: #E0076A;
 @for $i from 1 through 60 {
   @keyframes particle-animation-#{$i} {
     100% {
-      transform: translate3d((random(90) * 0.9vw), (random(90) * 0.5vh), (random(100) * 0.5px));
+      transform: translate3d((random(90) * 0.9vw), (random(90) * 0.4vh), (random(100) * 0.4px));
     }
   }
 
@@ -112,7 +112,7 @@ $brand-color: #E0076A;
     height: $size;
     width: $size;
     animation-delay: -$i * 0.7s;
-    transform: translate3d((random(90) * 0.9vw), (random(90) * 0.5vh), (random(100) * 0.5px));
+    transform: translate3d((random(90) * 0.9vw), (random(90) * 0.4vh), (random(100) * 0.4px));
     transition: transform 0.3s ease; // Add transition for smooth animation
     cursor: pointer; // Change cursor to pointer when hovering
 
