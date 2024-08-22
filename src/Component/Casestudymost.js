@@ -294,24 +294,24 @@ const Casestudymost = () => {
 
   return (
     <>
-      <section className='d-flex align-items-center gap-3 filter-container'>
-        <div className='filtertext filter-text'>FILTER BY CATEGORY</div>
-        <div className='d-flex mt-3 pl-3  gap-4 gkhlkfghfg text-black'>
-          <div className='d-flex flex-column h-9'>
+      <section className='d-flex align-items-center gap-5 filter-container'>
+        <div className='filtertext filter-text ' style={{marginBottom:'40px'}}>FILTER BY CATEGORY</div>
+        <div className='d-flex mt-3 pl-5  gap-4 gkhlkfghfg text-black'>
+          <div className='d-flex flex-column h-9 align-items-center'>
             <button className={`boll ${selectedFilter === 'All' ? 'active' : ''}`} onClick={() => handleFilterChange('All')}></button>
-            {selectedFilter === 'All' && <span className='filter-label filter-text'>All</span>}
+            <span className='filter-label filter-text'>All</span>
           </div>
-          <div className='d-flex flex-column h-9'>
+          <div className='d-flex flex-column h-9 align-items-center'>
             <button className={`boll bollone ${selectedFilter === 'Strategy' ? 'active' : ''}`} onClick={() => handleFilterChange('Strategy')}></button>
-            {selectedFilter === 'Strategy' && <span className='filter-label filter-text'>Strategy</span>}
+            <span className='filter-label filter-text'>Strategy</span>
           </div>
-          <div className='d-flex  flex-column  h-9'>
+          <div className='d-flex  flex-column  h-9 align-items-center'>
             <button className={`boll bolltwo ${selectedFilter === 'Tech' ? 'active' : ''}`} onClick={() => handleFilterChange('Tech')}></button>
-            {selectedFilter === 'Tech' && <span className='filter-label filter-text'>Tech</span>}
+           <span className='filter-label filter-text'>Tech</span>
           </div>
-          <div className='d-flex  flex-column h-9'>
+          <div className='d-flex  flex-column h-9 align-items-center'>
             <button className={`boll bollthree ${selectedFilter === 'Brand' ? 'active' : ''}`} onClick={() => handleFilterChange('Brand')}></button>
-            {selectedFilter === 'Brand' && <span className='filter-label filter-text'>Brand</span>}
+           <span className='filter-label filter-text'>Brand</span>
           </div>
         </div>
       </section>

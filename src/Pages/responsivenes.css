@@ -536,6 +536,7 @@ text-align: left;
 }
 .mainbigcard {
 width: 100%;
+display: block;
 }
 .filter-container {
   padding-top: 30%;
