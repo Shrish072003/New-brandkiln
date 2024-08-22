@@ -1358,7 +1358,7 @@ const Particle = () => {
             <div
               className="particle"
               key={index}
-              style={{ top: 'auto', marginTop: '25vh', marginLeft: '15vh', marginRight: '15vh', backgroundColor: color, ...style }}
+              style={{ top: 'auto', marginTop: '17%', marginLeft: '15vh', marginRight: '15vh', backgroundColor: color, ...style }}
               onClick={(event) => handleParticleClick(data.image, data.headline, data.text, data.link, index, event)}
             ></div>
           );
