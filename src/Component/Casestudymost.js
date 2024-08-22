@@ -154,14 +154,14 @@ const caseStudies = [
   },
   {
     "image": "http://brandkiln.com/static/media/COnfidential.9338efa625752e17e681.png",
-    "headline": "World’s leading Private Bank",
+    "headline": "Tech-enabled CX platform",
     "text": "Customer Experience platform… deep-tech and grounds-up development",
     "tag": "Strategy",
     "link": "/case-study/private-banks"
   },
   {
     "image": "http://brandkiln.com/static/media/COnfidential.9338efa625752e17e681.png",
-    "headline": "World’s leading Private Bank",
+    "headline": "Tech-enabled CX platform",
     "text": "Customer Experience platform… deep-tech and grounds-up development",
     "tag": "Tech",
     "link": "/case-study/private-banks"
