@@ -90,13 +90,6 @@ const profiles = [
         description: 'Mauricio Prieto, is a Web 3.0 influencer, and an angel investor for blockchain projects. Mauricio leverages his deep networks within the AI and Web 3.0 ecosystem, including innovators, investors, and startup founders, to embed Brand Kiln within the emergent future-digital landscape. An early Bitcoin miner and investor, Mauricio has been involved with leading blockchains since 2015. He is the founder of HYP-C DAO and Osmium DAO and additionally, serves as a strategic partner for Singularity AI.'
     },
     {
-        image: JigneshJain ,
-        name: 'Jignesh Jain',
-        designation: 'Leader: Strategic Initiatives – UK',
-        edu: '15 years exp.',
-        description: 'Jignesh is a serial entrepreneur and industry veteran with over 15 years of prolific experience. A global citizen with extensive gaming and entertainment industry experience, he served various Fortune 500 and Forbes 50 corporations, focusing on global sales, go-to-market strategy, and new product development. Jignesh has received numerous industry awards, including being named one of the Top 50 ed-tech entrepreneurs in India by the World Education Congress in July 2019.'
-    },
-    {
         image: ShoebahmedShaikh ,
         name: 'Shoebahmed Shaikh',
         designation: 'Leader: Digital Experience Innovation',
